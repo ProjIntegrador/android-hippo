@@ -1,7 +1,7 @@
 package br.com.enforce.hippov1;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class Categorias extends AppCompatActivity {
 
