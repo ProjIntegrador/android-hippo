@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">HIPPO V1</string>
+    <string name="termCheck">Aceitar termos de uso</string>
+    <string name="termDescription">
+O Aplicativo gravará recursos em seu aparelho. Ao aceitar o termo de uso, você automaticamnete autoriza a utilização nesse método para atender as funcionalidades necessárias para essa aplicação.
+    </string>
 </resources>

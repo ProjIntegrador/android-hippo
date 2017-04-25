@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="tam_cat">14sp</dimen>
+
+    <!-- Comandos abaixo sao da tela activity_main.xml -->
+    <dimen name="paddin_terms">25dp</dimen>
+</resources>
