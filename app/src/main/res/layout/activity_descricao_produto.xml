@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:context="br.com.enforce.hippov1.DescricaoProdutos">
+
+    <TextView
+        android:id="@+id/nomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="Nome do Produto"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imagem"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginRight="10dp"
+        android:contentDescription="Imagem do Produto"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/nomeProduto"
+        android:layout_alignParentStart="true" />
+
+    <RelativeLayout
+
+        android:id="@+id/pricingSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/imagem"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:id="@+id/precProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Preço"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/descontoPromocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Promoção"
+            android:layout_marginTop="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/descontoPromocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quantidade : "
+            android:layout_marginTop="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="34dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/infoSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/imagem"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:weightSum="1">
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/descProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.52"
+        android:text="Descrição"
+        android:textSize="15sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>
