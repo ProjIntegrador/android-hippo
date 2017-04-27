@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
                         Intent intent = new Intent(MainActivity.this, Produto.class);
                         startActivity(intent);
 
+                        finish();
+
                     }else{
 
                     }
@@ -47,5 +49,6 @@ public class MainActivity extends AppCompatActivity {
             // vai para outra
             Intent intent = new Intent(this, Produto.class);
             startActivity(intent);
+
         }
     }}
