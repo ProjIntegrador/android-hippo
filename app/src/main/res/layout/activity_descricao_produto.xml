@@ -7,14 +7,14 @@
     android:orientation="vertical"
     android:paddingTop="10dp"
     android:paddingBottom="10dp"
-    tools:context="br.com.enforce.hippov1.DescricaoProdutos">
+    tools:context="br.com.enforce.hippov1.DescricaoProduto">
 
     <TextView
         android:id="@+id/nomeProduto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:text="Nome do Produto"
+        android:text="@string/tv_nome_do_produto"
         android:textSize="18sp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
