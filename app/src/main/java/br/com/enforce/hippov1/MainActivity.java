@@ -31,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("termos", "ok");
                         editor.apply();
                         //vai para outra
-                        Intent intent = new Intent(MainActivity.this, Categorias.class);
+                        Intent intent = new Intent(MainActivity.this, Produto.class);
                         startActivity(intent);
+
+                        finish();
 
                     }else{
 
@@ -45,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
 
         }else{
             // vai para outra
-            Intent intent = new Intent(this, Categorias.class);
+            Intent intent = new Intent(this, Produto.class);
             startActivity(intent);
+
         }
     }}
