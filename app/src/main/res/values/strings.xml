@@ -4,4 +4,5 @@
     <string name="termDescription">
 O Aplicativo gravará recursos em seu aparelho. Ao aceitar o termo de uso, você automaticamnete autoriza a utilização nesse método para atender as funcionalidades necessárias para essa aplicação.
     </string>
+    <string name="tv_nome_do_produto">Nome do Produto</string>
 </resources>
