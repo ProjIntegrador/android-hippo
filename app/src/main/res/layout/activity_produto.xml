@@ -8,10 +8,42 @@
     android:padding="5dp"
     android:orientation="horizontal">
 
-    <ListView
-        android:layout_width="match_parent"
+    <android.support.v4.view.ViewPager
         android:layout_height="match_parent"
-        android:id="@+id/lv_produto"/>
+        android:layout_width="match_parent"
+        android:id="@+id/produto_pager">
+
+
+        <android.support.v4.view.PagerTabStrip
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#ffffe92c"
+            android:textColor="#ffff00ff">
+
+        </android.support.v4.view.PagerTabStrip>
+
+    </android.support.v4.view.ViewPager>
+
+
+
+    <!--android.support.v4.view.ViewPager
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:id="@+id/produto_pager">
+
+
+        <android.support.v4.view.PagerTabStrip
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:background="#ffffe92c"
+            android:textColor="#ffff00ff">
+
+        </android.support.v4.view.PagerTabStrip>
+
+    </android.support.v4.view.ViewPager-->
+
+
+
 
 
 </LinearLayout>

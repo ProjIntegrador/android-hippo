@@ -2,7 +2,20 @@
     <string name="app_name">HIPPO V1</string>
     <string name="termCheck">Aceitar termos de uso</string>
     <string name="termDescription">
-O Aplicativo gravará recursos em seu aparelho. Ao aceitar o termo de uso, você automaticamnete autoriza a utilização nesse método para atender as funcionalidades necessárias para essa aplicação.
+        O Aplicativo gravará recursos em seu aparelho. Ao aceitar o termo de uso, você automaticamnete autoriza a utilização nesse método para atender as funcionalidades necessárias para essa aplicação.
     </string>
     <string name="tv_nome_do_produto">Nome do Produto</string>
+
+    <!-- As linha abaixo pertencem a tela activity_produto -->
+    <string-array name="tab_titulo">
+        <item>Categoria A</item>
+        <item>Categoria B</item>
+        <item>Categoria C</item>
+        <item>Categoria D</item>
+    </string-array>
+
+    <string name="textoA">Texto A</string>
+    <string name="textoB">Texto B</string>
+    <string name="textoC">Texto C</string>
+
 </resources>

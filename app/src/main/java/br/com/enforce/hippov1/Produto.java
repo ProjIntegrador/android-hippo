@@ -4,12 +4,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import org.json.JSONObject;
+
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -17,17 +21,31 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+
+import br.com.enforce.hippov1.fragmentos.CategoriaA;
+import br.com.enforce.hippov1.fragmentos.CategoriaB;
+import br.com.enforce.hippov1.fragmentos.CategoriaC;
+import br.com.enforce.hippov1.fragmentos.CfgP;
 
 public class Produto extends AppCompatActivity {
 
-    Context context;
     private String nome;
     private String preco;
-    private ListView lv_produto;
+    //private ListView lv_produto;
     private ArrayList<String> produto;
     private ArrayAdapter<String>  adapter_produto;
     //metodo improvisado para puxar categorias
     private String categoriaid ="1";
+
+    private Context context;
+
+    private ViewPager pager;
+    private ArrayList<CfgP> dados;
+
+    private CategoriaA catA;
+    private CategoriaB catB;
+    private CategoriaC catC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +60,9 @@ public class Produto extends AppCompatActivity {
 
         context = getBaseContext();
 
-        lv_produto = (ListView) findViewById(R.id.lv_produto);
+       // lv_produto = (ListView) findViewById(R.id.lv_produto);
 
-
-
+/*
         adapter_produto = new ArrayAdapter<String>(
                 context,
                 android.R.layout.simple_list_item_1,
@@ -53,17 +70,62 @@ public class Produto extends AppCompatActivity {
         );
 
         lv_produto.setAdapter(adapter_produto);
+     */
+
+
+        pager = (ViewPager)findViewById(R.id.produto_pager);
+        gerarTelas();
     }
 
+    private void gerarTelas() {
+        catA = new CategoriaA();
+        catB = new CategoriaB();
+        catC = new CategoriaC();
 
+        dados = new ArrayList<>();
+        dados.add(new CfgP("Tela 01", catA));
+        dados.add(new CfgP("Tela 02", catB));
+        dados.add(new CfgP("Tela 03", catC));
+
+        pager.setAdapter(
+                new TelaAdapter(
+                        getSupportFragmentManager(),
+                        dados
+                )
+
+        );
+    }
+
+    private class TelaAdapter extends FragmentPagerAdapter{
+
+        private List<CfgP> dados;
+
+        public TelaAdapter(FragmentManager fm, List<CfgP> dados) {
+            super(fm);
+            this.dados = dados;
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return dados.get(position).getFrg();
+        }
+
+        @Override
+        public int getCount() {
+            return dados.size();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return dados.get(position).getTitulo();
+        }
+    }
 
 
     private void inicializaAcao() {
         NetworkCall myCall = new NetworkCall();
         // Executa a thread, passando null como parâmetro
         myCall.execute("http://hippows.azurewebsites.net/g1/webservices/categoria?idCategoria="+categoriaid);
-
-
 
     }
 
