@@ -22,12 +22,12 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-
+/*
 import br.com.enforce.hippov1.fragmentos.CategoriaA;
 import br.com.enforce.hippov1.fragmentos.CategoriaB;
 import br.com.enforce.hippov1.fragmentos.CategoriaC;
 import br.com.enforce.hippov1.fragmentos.CfgP;
-
+*/
 public class Produto extends AppCompatActivity {
 
     private String nome;
@@ -41,19 +41,19 @@ public class Produto extends AppCompatActivity {
     private Context context;
 
     private ViewPager pager;
-    private ArrayList<CfgP> dados;
+/*    private ArrayList<CfgP> dados;
 
     private CategoriaA catA;
     private CategoriaB catB;
     private CategoriaC catC;
-
+*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produto);
 
         inicializaVariavel();
-        inicializaAcao();
+        // inicializaAcao();
     }
 
     private void inicializaVariavel() {
@@ -74,10 +74,10 @@ public class Produto extends AppCompatActivity {
 
 
         pager = (ViewPager)findViewById(R.id.produto_pager);
-        gerarTelas();
+       // gerarTelas();
     }
 
-    private void gerarTelas() {
+   /* private void gerarTelas() {
         catA = new CategoriaA();
         catB = new CategoriaB();
         catC = new CategoriaC();
@@ -127,8 +127,7 @@ public class Produto extends AppCompatActivity {
         // Executa a thread, passando null como parâmetro
         myCall.execute("http://hippows.azurewebsites.net/g1/webservices/categoria?idCategoria="+categoriaid);
 
-    }
-
+    }       */
 
 
 
