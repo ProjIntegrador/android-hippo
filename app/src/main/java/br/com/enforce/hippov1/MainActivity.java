@@ -7,11 +7,18 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TableLayout;
+
+import java.util.ArrayList;
+
+import br.com.enforce.hippov1.listas.Constantes;
 
 public class MainActivity extends AppCompatActivity {
 
     private CheckBox termos;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +60,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         }
+
+
     }
+
 
 
 }
