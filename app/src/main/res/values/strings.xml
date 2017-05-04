@@ -18,4 +18,22 @@
     <string name="textoB">Texto B</string>
     <string name="textoC">Texto C</string>
 
+    <!-- As linha abaixo pertencem a tela activity_cadastro -->
+    <string name="tvemail">E-mail :</string>
+    <string name="tvnome">Nome Completo :</string>
+    <string name="tvsenha">Senha :</string>
+    <string name="tvcsenha">Confirme a Senha :</string>
+    <string name="tvcelular">Celular :</string>
+    <string name="tvdata_nacimento">Data de Nascimento :</string>
+
+    <string name="hint_email">Digite o E-mail !</string>
+    <string name="hint_nome">Digite o Nome !</string>
+    <string name="hint_senha">Digite a Senha !</string>
+    <string name="hint_csenha">Confirme a Senha !</string>
+    <string name="hint_celular">Digite o Celular !</string>
+    <string name="hint_data_nacimento">00/00/0000</string>
+
+
+    <string name="chx_promocoes">Deseja Receber Nossa Promoções ?</string>
+    <string name="btn_cadastrar">Cadastrar-se?</string>
 </resources>
