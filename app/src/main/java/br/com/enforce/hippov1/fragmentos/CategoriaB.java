@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 
 import br.com.enforce.hippov1.R;
 
-/**
- * Created by nalmir on 06/02/2017.
- */
+
 public class CategoriaB extends Fragment {
 
     @Nullable
@@ -22,7 +20,5 @@ public class CategoriaB extends Fragment {
 
         return view;
     }
-
-
 
 }
