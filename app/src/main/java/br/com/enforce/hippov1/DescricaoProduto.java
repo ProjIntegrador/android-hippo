@@ -45,7 +45,7 @@ public class DescricaoProduto extends AppCompatActivity {
                 .build();
 
         HippoServices service = retrofit.create(HippoServices.class);
-        Call<ProdutoRest> retorno = service.obtemDetalheProduto(2);
+        Call<ProdutoRest> retorno = service.obtemDetalheProduto(5);
 
         retorno.enqueue(new Callback<ProdutoRest>() {
             @Override
@@ -54,14 +54,26 @@ public class DescricaoProduto extends AppCompatActivity {
                 nomeproduto.setText(response.body().getNome());
                 preco.setText(response.body().getPreco().toString());
 
-                /* String base = response.body().getImagem();
-                byte[] imageBytes = Base64.decode(base.getBytes(), Base64.DEFAULT);
-                Bitmap imagemDecodificada = BitmapFactory.decodeByteArray(imageBytes, 0, imageBytes.length);
-                imagem.setImageBitmap(imagemDecodificada); */
+                /*  IMAGEM RENDER (tentativa)
+
+                //  Obtem Response da imagem do banco que está inicialmente em binário
+                String binaryStringResponse = response.body().getImagem();
+
+                //  Convertendo String para Binario
+                byte[] bynarybase = binaryStringResponse.getBytes();
+
+                //  Pega Base Binária e converte para a Base64
+                // byte[] encodedImage64 = Base64.encode(bynarybase, Base64.DEFAULT);
+
+                //  Decodifica a base64 para o elemento R.id.imagem
+                imagem.setImageBitmap(BitmapFactory.decodeByteArray(encodedImage64, 0, encodedImage64.length));
+
+                //  FIM Bloco IMAGEM
+                */
 
                 descproduto.setText(response.body().getDescproduto());
-            }
 
+            }
             @Override
             public void onFailure(Call<ProdutoRest> call, Throwable t) {
                 Log.e("falha", t.getMessage());
@@ -69,8 +81,6 @@ public class DescricaoProduto extends AppCompatActivity {
             }
 
         });
-
-
 
 
     }
