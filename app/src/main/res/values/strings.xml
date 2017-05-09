@@ -36,4 +36,12 @@
 
     <string name="chx_promocoes">Deseja Receber Nossa Promoções ?</string>
     <string name="btn_cadastrar">Cadastrar-se?</string>
+
+    <!-- As linha abaixo pertencem a tela activity_login -->
+    <string name="loginUsuario">Email:</string>
+    <string name="senhaUsuario">Senha:</string>
+    <string name="buttonEnviar">Enviar:</string>
+    <string name="buttonNvCadastro">Novo Cadastro:</string>
+
+
 </resources>
