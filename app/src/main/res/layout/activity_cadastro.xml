@@ -33,7 +33,7 @@
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/et_nome"
+                    android:id="@+id/nomeCompletoCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_nome"
@@ -53,7 +53,7 @@
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/et_email"
+                    android:id="@+id/emailCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_email"
@@ -74,7 +74,7 @@
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/et_senha"
+                    android:id="@+id/senhaCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_senha"
@@ -115,7 +115,7 @@
                     android:textColor="@android:color/black" />
 
                 <EditText
-                    android:id="@+id/et_celular"
+                    android:id="@+id/celularCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_celular"
@@ -136,7 +136,7 @@
 
 
                 <EditText
-                    android:id="@+id/et_data_nascimento"
+                    android:id="@+id/dtNascCliente"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:ems="10"

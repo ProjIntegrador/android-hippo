@@ -42,6 +42,10 @@
     <string name="senhaUsuario">Senha:</string>
     <string name="buttonEnviar">Enviar:</string>
     <string name="buttonNvCadastro">Novo Cadastro:</string>
+    <string name="pass">******</string>
+    <string name="btn_enviar">Enviar</string>
+    <string name="novo_cadastro">Novo Cadastro</string>
+    <string name="email">mail@dominio.com.br</string>
 
 
 </resources>
