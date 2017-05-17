@@ -25,7 +25,7 @@ public class Cadastro extends AppCompatActivity {
 
         nomeCompletoCliente = (EditText) findViewById(R.id.nomeCompletoCliente);
         emailCliente = (EditText) findViewById(R.id.emailCliente);
-        senhaCliente = (EditText) findViewById(R.id.senhaUsuario);
+        senhaCliente = (EditText) findViewById(R.id.senhaCliente);
         celularCliente = (EditText) findViewById(R.id.celularCliente);
         dtNascCliente = (EditText)  findViewById(R.id.dtNascCliente);
         cbx_promosao_por_email  = (CheckBox) findViewById(R.id.cbx_promosao_por_email);

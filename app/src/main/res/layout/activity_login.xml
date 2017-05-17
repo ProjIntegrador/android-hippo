@@ -8,27 +8,27 @@
 
 
     <EditText
-        android:id="@+id/loginUsuario"
+        android:id="@+id/emailCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textEmailAddress"
         android:hint="@string/email"
-        android:layout_marginTop="120dp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/buttonNvCadastro"
+        android:layout_marginBottom="44dp"
         android:layout_alignStart="@+id/buttonEnviar"
-        android:layout_alignEnd="@+id/senhaUsuario" />
+        android:layout_alignEnd="@+id/buttonNvCadastro" />
 
     <EditText
-        android:id="@+id/senhaUsuario"
+        android:id="@+id/senhaCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
         android:hint="@string/pass"
+        android:layout_marginTop="210dp"
         android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/buttonEnviar"
-        android:layout_marginTop="180dp"
+        android:layout_alignStart="@+id/emailCliente"
         android:layout_alignEnd="@+id/buttonNvCadastro" />
 
     <Button
@@ -36,9 +36,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btn_enviar"
-        android:layout_alignTop="@+id/buttonNvCadastro"
+        android:layout_alignBaseline="@+id/buttonNvCadastro"
+        android:layout_alignBottom="@+id/buttonNvCadastro"
         android:layout_toStartOf="@+id/buttonNvCadastro"
-        android:layout_marginEnd="48dp" />
+        android:layout_marginEnd="23dp" />
 
     <Button
         android:id="@+id/buttonNvCadastro"
@@ -46,10 +47,10 @@
         android:layout_height="wrap_content"
         android:text="@string/novo_cadastro"
         tools:layout_editor_absoluteX="199dp"
-        tools:layout_editor_absoluteY="360dp"
-        android:layout_marginTop="114dp"
-        android:layout_marginEnd="45dp"
-        android:layout_below="@+id/senhaUsuario"
-        android:layout_alignParentEnd="true" />
+        tools:layout_editor_absoluteY="320dp"
+        android:layout_marginTop="59dp"
+        android:layout_below="@+id/senhaCliente"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="66dp" />
 
 </RelativeLayout>

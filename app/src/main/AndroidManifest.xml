@@ -22,7 +22,8 @@
         <activity android:name=".DescricaoProduto" />
         <activity android:name=".rest.Cadastro" />
         <activity android:name=".Login" />
-        <activity android:name=".Categorias"></activity>
+        <activity android:name=".Categorias" />
+
     </application>
 
 </manifest>

@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import br.com.enforce.hippov1.rest.CategoriaRest;
+import br.com.enforce.hippov1.rest.ClienteLoginRest;
 import br.com.enforce.hippov1.rest.HippoServices;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,13 +35,13 @@ public class Categorias extends AppCompatActivity {
                 .build();
 
         HippoServices service = retrofit.create(HippoServices.class);
-        //Call<CategoriaRest> retorno = service.responseString(Callback<CategoriaRest>);
+        final Call<CategoriaRest> retorno = service.responseString();
 
-        /*retorno.enqueue(new Callback<CategoriaRest>() {
+     /*   retorno.enqueue(new Callback<CategoriaRest>() {
             @Override
             public void onResponse(Call<CategoriaRest> call, Response<CategoriaRest> response) {
                 if (response.isSuccess()) {
-                    CategoriaRest categorias = response.body;
+                    CategoriaRest categorias = response.body();
                     Log.e("Nome Categoria: ", categorias.getNomeCategoria();
                 }else {
 
@@ -59,7 +60,8 @@ public class Categorias extends AppCompatActivity {
 
             addItem(nomeCategoria);
 
-        }*/
+        }
+    */
     }
 
     private void addItem(String categoryTitle) {
@@ -85,6 +87,7 @@ public class Categorias extends AppCompatActivity {
 
         imageLoader.displayImage(urlArrposition, RenderizarImageInId, options);
         */
+
         conteinerRes.addView(cardView);
     }
 
