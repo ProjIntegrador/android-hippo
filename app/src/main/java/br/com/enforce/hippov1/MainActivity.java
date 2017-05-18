@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_pagamento);
         final SharedPreferences prefs = getSharedPreferences("MeusDados", MODE_PRIVATE);
 
         String configuracao = prefs.getString("termos", null);

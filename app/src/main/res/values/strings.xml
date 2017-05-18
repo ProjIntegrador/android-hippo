@@ -42,10 +42,24 @@
     <string name="senhaUsuario">Senha:</string>
     <string name="buttonEnviar">Enviar:</string>
     <string name="buttonNvCadastro">Novo Cadastro:</string>
+    <string name="txt_forma_de_pagamento">Forma de pagamento:</string>
+    <string name="n_mero_do_cart_o">Número do cartão:</string>
+    <string name="numcart">0000 0000 0000 0000</string>
+    <string name="validade">Validade:</string>
+    <string name="barra">/</string>
+    <string name="ano">AAAA</string>
+    <string name="mes">MM</string>
+    <string name="c_digo_de_seguran_a">Código de segurança:</string>
+    <string name="nome_impresso_no_cart_o">Nome impresso no cartão:</string>
+    <string name="ex_nome">EX: joão da silva barros</string>
+
+
+
     <string name="pass">******</string>
     <string name="btn_enviar">Enviar</string>
     <string name="novo_cadastro">Novo Cadastro</string>
     <string name="email">mail@dominio.com.br</string>
+    <string name="salvar_dados">Salvar Dados</string>
 
 
 </resources>

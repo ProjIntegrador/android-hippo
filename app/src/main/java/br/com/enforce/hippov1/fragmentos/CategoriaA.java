@@ -88,6 +88,8 @@ public class CategoriaA extends Fragment {
             R.drawable.avenger07
     };
 
+
+
     String [] nomes = {
             "Gaviao Arqueiro",
             "War Machine",
@@ -123,5 +125,6 @@ public class CategoriaA extends Fragment {
             arrau_list_produtos.add(hmAux);
         }
     }
+
 
 }
