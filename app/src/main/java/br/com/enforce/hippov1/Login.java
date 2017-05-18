@@ -1,8 +1,10 @@
 package br.com.enforce.hippov1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -29,35 +31,50 @@ public class Login extends AppCompatActivity {
 
         emailCliente = (EditText) findViewById(R.id.emailCliente);
         senhaCliente = (EditText) findViewById(R.id.senhaCliente);
-        buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
+
         buttonNvCadastro = (Button) findViewById(R.id.buttonNvCadastro);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://191.252.61.93:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        HippoServices service = retrofit.create(HippoServices.class);
-        Call<ClienteLoginRest> retorno = service.autenticaCliente( emailCliente , senhaCliente);
+        buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
+        buttonEnviar.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
 
-        retorno.enqueue(new Callback<ClienteLoginRest>() {
-            @Override
-            public void onResponse(Call<ClienteLoginRest> call, Response<ClienteLoginRest> response) {
-                if (response.isSuccessful()) {
-                    Log.i("retorno", response.body().toString());
-                }else {
-                    Log.i("return_error", response.body().toString());
-                }
+                //  INICIA COMUNICAÇÃO COM O WS de Login
+                Retrofit retrofit = new Retrofit.Builder()
+                        .baseUrl("http://191.252.61.93:8080/")
+                        .addConverterFactory(GsonConverterFactory.create())
+                        .build();
+
+                HippoServices service = retrofit.create(HippoServices.class);
+                Call<ClienteLoginRest> retorno = service.autenticaCliente(emailCliente, senhaCliente);
+
+                retorno.enqueue(new Callback<ClienteLoginRest>() {
+                    @Override
+                    public void onResponse(Call<ClienteLoginRest> call, Response<ClienteLoginRest> response) {
+                        if (response.isSuccessful()) {
+                            Log.i("retorno", response.body().toString());
+                        } else {
+                            Log.i("return_error", response.body().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ClienteLoginRest> call, Throwable t) {
+                        Log.e("falha", t.getMessage());
+                        finish();
+                    }
+
+                });
+
             }
-
-            @Override
-            public void onFailure(Call<ClienteLoginRest> call, Throwable t) {
-                Log.e("falha", t.getMessage());
-                finish();
-            }
-
         });
 
+
+        /* @Override
+        protected void onPostExecute(String emailCliente, String senhaCliente){
+
+
+        }*/
 
 
     }
