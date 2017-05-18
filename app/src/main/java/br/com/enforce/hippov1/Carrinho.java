@@ -10,8 +10,6 @@ public class Carrinho extends AppCompatActivity {
     private TextView nomeProduto1;
     private TextView nomeProduto2;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

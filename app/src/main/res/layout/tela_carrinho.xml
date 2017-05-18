@@ -104,6 +104,7 @@
         android:layout_alignStart="@+id/button1" />
 
     <ImageView
+
         android:id="@+id/apagar"
         android:layout_width="31dp"
         android:layout_height="28dp"
