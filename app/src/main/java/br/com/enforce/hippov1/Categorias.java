@@ -7,9 +7,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import br.com.enforce.hippov1.rest.CategoriaRest;
-import br.com.enforce.hippov1.rest.ClienteLoginRest;
 import br.com.enforce.hippov1.rest.HippoServices;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -35,33 +38,38 @@ public class Categorias extends AppCompatActivity {
                 .build();
 
         HippoServices service = retrofit.create(HippoServices.class);
-        final Call<CategoriaRest> retorno = service.responseString();
+        final Call<List<CategoriaRest>> retorno = service.responseString();
 
-     /*   retorno.enqueue(new Callback<CategoriaRest>() {
+        retorno.enqueue(new Callback<List<CategoriaRest>>() {
             @Override
-            public void onResponse(Call<CategoriaRest> call, Response<CategoriaRest> response) {
-                if (response.isSuccess()) {
-                    CategoriaRest categorias = response.body();
-                    Log.e("Nome Categoria: ", categorias.getNomeCategoria();
-                }else {
+            public void onResponse(Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
 
+                if (response.isSuccessful()) {
+                    List<CategoriaRest> totalCat = response.body();
+
+                    if (totalCat.size() > 0) {
+                        Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
+
+                        for (CategoriaRest categoria : totalCat) {
+                            addItem(categoria.getNome());
+                        }
+                    } else {
+                        Log.e("Sem categoria", "aaaaa");
+                    }
+
+                } else {
+                    Log.e("Nome Categoria: ", "aaaaa");
                 }
+
             }
 
             @Override
-            public void onFailure(Call<CategoriaRest> call, Throwable t) {
+            public void onFailure(Call<List<CategoriaRest>> call, Throwable t) {
                 Log.e("falha", t.getMessage());
                 finish();
             }
 
         });
-
-        for (int i = 0; i < nomeCategoria.length; i++) {
-
-            addItem(nomeCategoria);
-
-        }
-    */
     }
 
     private void addItem(String categoryTitle) {
@@ -70,7 +78,7 @@ public class Categorias extends AppCompatActivity {
 
         TextView tituloCategoria = (TextView) cardView.findViewById(R.id.titulo);
         //TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
-        tituloCategoria.setText(nomeCategoria);
+        tituloCategoria.setText(categoryTitle);
         // mensagem.setText();
 
         //  Caso seja uma boa uma imagem, podemos incorporar incluindo o codigo abaixo e no for um Switch Case para setar uma img de cada Categoria
@@ -90,9 +98,4 @@ public class Categorias extends AppCompatActivity {
 
         conteinerRes.addView(cardView);
     }
-
-    }
-
-
-
-//}
+}
