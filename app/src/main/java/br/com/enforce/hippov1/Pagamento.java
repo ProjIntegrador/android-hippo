@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ public class Pagamento extends Activity {
 private Spinner spinner;
     private List<String> opcoes = new ArrayList<>();
     private String opcao;
+    private Button enviar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +36,15 @@ private Spinner spinner;
         ArrayAdapter<String> spinnerArrayAdapter = arrayAdapter;
         spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(spinnerArrayAdapter);
+
+        enviar=(Button)findViewById(R.id.enviar_dados_pag);
+        enviar.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(Pagamento.this, "Dados Enviados Com Sucesso ,Retornando a Compra " , Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Pagamento.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
 
         //Método do Spinner para capturar o item selecionado
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
