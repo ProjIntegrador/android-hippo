@@ -11,20 +11,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="6dp">
+        android:padding="9dp">
 
         <TextView
             android:id="@+id/titulo"
             style="?android:textAppearanceLarge"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:id="@+id/mensagem"
-            style="?android:textAppearanceMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+        />
 
         <!--ImageView
             android:layout_width="match_parent"

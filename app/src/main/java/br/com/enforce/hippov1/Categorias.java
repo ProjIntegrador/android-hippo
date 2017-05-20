@@ -1,15 +1,17 @@
 package br.com.enforce.hippov1;
 
+import android.graphics.Color;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.text.style.TtsSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.enforce.hippov1.rest.CategoriaRest;
@@ -54,7 +56,20 @@ public class Categorias extends AppCompatActivity {
                             addItem(categoria.getNome());
                         }
                     } else {
-                        Log.e("Sem categoria", "aaaaa");
+                        Log.e("Sem categorias", "aaaaa");
+
+                        final Snackbar snackbar = Snackbar
+                                .make(findViewById(R.id.container),"Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
+                                .setAction("Tentar Novamente", new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                    }
+                                });
+
+                        View sbView = snackbar.getView();
+                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                        textView.setTextColor(Color.GREEN);
+                        snackbar.show();
                     }
 
                 } else {
@@ -66,15 +81,100 @@ public class Categorias extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<CategoriaRest>> call, Throwable t) {
                 Log.e("falha", t.getMessage());
-                finish();
+
+                final Snackbar snackbar = Snackbar
+                        .make(findViewById(R.id.container),"Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
+                        .setAction("Tentar Novamente", new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+
+                                Retrofit retrofit = new Retrofit.Builder()
+                                        .baseUrl("http://191.252.61.93:8080/")
+                                        .addConverterFactory(GsonConverterFactory.create())
+                                        .build();
+
+                                HippoServices service = retrofit.create(HippoServices.class);
+                                final Call<List<CategoriaRest>> retorno = service.responseString();
+
+                                retorno.enqueue(new Callback<List<CategoriaRest>>() {
+                                    @Override
+                                    public void onResponse(Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
+
+                                        if (response.isSuccessful()) {
+                                            List<CategoriaRest> totalCat = response.body();
+
+                                            if (totalCat.size() > 0) {
+                                                Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
+
+                                                for (CategoriaRest categoria : totalCat) {
+                                                    addItem(categoria.getNome());
+                                                }
+                                            } else {
+                                                Log.e("Sem categorias", "aaaaa");
+
+                                                final Snackbar snackbar = Snackbar
+                                                        .make(findViewById(R.id.container),"Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
+                                                        .setAction("Tentar Novamente", new View.OnClickListener() {
+                                                            @Override
+                                                            public void onClick(View view) {
+                                                            }
+                                                        });
+
+                                                View sbView = snackbar.getView();
+                                                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                                                textView.setTextColor(Color.GREEN);
+                                                snackbar.show();
+                                            }
+
+                                        } else {
+                                            Log.e("Nome Categoria: ", "aaaaa");
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onFailure(Call<List<CategoriaRest>> call, Throwable t) {
+                                        Log.e("falha", t.getMessage());
+
+                                        final Snackbar snackbar = Snackbar
+                                                .make(findViewById(R.id.container),"Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
+                                                .setAction("Tentar Novamente", new View.OnClickListener() {
+                                                    @Override
+                                                    public void onClick(View view) {
+
+
+
+
+                                                    }
+                                                });
+
+                                        View sbView = snackbar.getView();
+                                        TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                                        textView.setTextColor(Color.GREEN);
+                                        snackbar.show();
+                                        // finish();
+                                    }
+
+                                });
+
+
+                            }
+                        });
+
+                View sbView = snackbar.getView();
+                TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+                textView.setTextColor(Color.GREEN);
+                snackbar.show();
+                // finish();
             }
 
         });
+
     }
 
     private void addItem(String categoryTitle) {
 
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.element_card_layout, conteinerRes, false);
+        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.cardview_categoria, conteinerRes, false);
 
         TextView tituloCategoria = (TextView) cardView.findViewById(R.id.titulo);
         //TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
