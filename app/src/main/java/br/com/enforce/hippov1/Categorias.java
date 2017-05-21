@@ -25,7 +25,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Categorias extends AppCompatActivity {
 
     private ViewGroup conteinerRes;
-    private String nomeCategoria;
+    private TextView lblEscolhaCategoria;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,9 @@ public class Categorias extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     List<CategoriaRest> totalCat = response.body();
+
+                    lblEscolhaCategoria = (TextView) findViewById(R.id.tv_escolha_cat);
+
 
                     if (totalCat.size() > 0) {
                         Log.e("Nome Categoria: ", "categorias : " + totalCat.size());

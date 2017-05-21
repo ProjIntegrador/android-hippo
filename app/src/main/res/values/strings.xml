@@ -60,5 +60,8 @@
     <string name="email">mail@dominio.com.br</string>
     <string name="salvar_dados">Salvar Dados</string>
 
+    <!-- As linha abaixo pertencem a tela Activity-Categorias -->
+    <string name="choose_any_category">Selecione uma categoria para comprar produtos</string>
+
 
 </resources>
