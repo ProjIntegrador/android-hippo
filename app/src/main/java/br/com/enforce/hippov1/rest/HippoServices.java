@@ -1,13 +1,10 @@
 package br.com.enforce.hippov1.rest;
 
-import android.widget.EditText;
-
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
-import retrofit2.Callback;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
@@ -26,8 +23,8 @@ public interface HippoServices {
     @FormUrlEncoded
     @POST("/webservices/login")
     Call<ClienteLoginRest> autenticaCliente(
-            @Field("emailCliente") EditText emailCliente,
-            @Field("senhaCliente") EditText senhaCliente
+            @Field("emailCliente") String emailCliente,
+            @Field("senhaCliente") String senhaCliente
     );
 
 }

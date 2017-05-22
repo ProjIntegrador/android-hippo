@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,6 +35,15 @@ public class Categorias extends AppCompatActivity {
         setContentView(R.layout.activity_categorias);
 
         conteinerRes = (ViewGroup) findViewById(R.id.container);
+
+        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.cardview_categoria, conteinerRes, false);
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "Test",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://191.252.61.93:8080/")

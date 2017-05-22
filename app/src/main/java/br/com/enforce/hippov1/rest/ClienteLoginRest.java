@@ -3,7 +3,7 @@ package br.com.enforce.hippov1.rest;
 
 public class ClienteLoginRest {
 
-    private Long id;
+    private Long idCliente;
     private String emailCliente;
     private String senhaCliente;
     private String nomeUsuario;
@@ -16,6 +16,10 @@ public class ClienteLoginRest {
         this.nomeUsuario = nomeUsuario;
         this.tipoPerfil = tipoPerfil;
         this.usuarioAtivo = usuarioAtivo;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
     }
 
     public String getEmailCliente() {
