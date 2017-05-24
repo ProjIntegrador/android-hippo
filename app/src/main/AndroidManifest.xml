@@ -21,16 +21,19 @@
         <activity android:name=".Carrinho" />
         <activity android:name=".Pagamento"/>
         <activity android:name=".SplashScreen">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".Sobre">
 
+
         </activity>
+
+
     </application>
 
 </manifest>
