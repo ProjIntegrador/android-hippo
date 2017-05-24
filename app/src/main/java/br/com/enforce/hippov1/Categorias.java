@@ -5,7 +5,6 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
-import android.text.style.TtsSpan;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +16,7 @@ import java.util.List;
 
 import br.com.enforce.hippov1.rest.CategoriaRest;
 import br.com.enforce.hippov1.rest.HippoServices;
+import br.com.enforce.hippov1.rest.RetrofitInitializer;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,17 +45,10 @@ public class Categorias extends AppCompatActivity {
             }
         });
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://191.252.61.93:8080/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        HippoServices service = retrofit.create(HippoServices.class);
-        final Call<List<CategoriaRest>> retorno = service.responseString();
-
-        retorno.enqueue(new Callback<List<CategoriaRest>>() {
+        Call call = (Call) new RetrofitInitializer().getHippoServices().responseString();
+        call.enqueue(new Callback<List<CategoriaRest>>() {
             @Override
-            public void onResponse(Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
+            public void onResponse(final Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
 
                 if (response.isSuccessful()) {
                     List<CategoriaRest> totalCat = response.body();
