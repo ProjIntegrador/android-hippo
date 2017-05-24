@@ -1,6 +1,8 @@
 package br.com.enforce.hippov1;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.support.annotation.StringRes;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +30,6 @@ public class Categorias extends AppCompatActivity {
     private ViewGroup conteinerRes;
     private TextView lblEscolhaCategoria;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,21 +53,19 @@ public class Categorias extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     List<CategoriaRest> totalCat = response.body();
-
                     lblEscolhaCategoria = (TextView) findViewById(R.id.tv_escolha_cat);
-
 
                     if (totalCat.size() > 0) {
                         Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
 
                         for (CategoriaRest categoria : totalCat) {
-                            addItem(categoria.getNome());
+                            addItem(categoria.getNome(), categoria.getId());
                         }
                     } else {
                         Log.e("Sem categorias", "aaaaa");
 
                         final Snackbar snackbar = Snackbar
-                                .make(findViewById(R.id.container),"Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
+                                .make(findViewById(R.id.container), "Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
                                 .setAction("Tentar Novamente", new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
@@ -82,7 +81,6 @@ public class Categorias extends AppCompatActivity {
                 } else {
                     Log.e("Nome Categoria: ", "aaaaa");
                 }
-
             }
 
             @Override
@@ -90,7 +88,7 @@ public class Categorias extends AppCompatActivity {
                 Log.e("falha", t.getMessage());
 
                 final Snackbar snackbar = Snackbar
-                        .make(findViewById(R.id.container),"Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
+                        .make(findViewById(R.id.container), "Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Tentar Novamente", new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -114,13 +112,13 @@ public class Categorias extends AppCompatActivity {
                                                 Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
 
                                                 for (CategoriaRest categoria : totalCat) {
-                                                    addItem(categoria.getNome());
+                                                    addItem(categoria.getNome(), categoria.getId());
                                                 }
                                             } else {
                                                 Log.e("Sem categorias", "aaaaa");
 
                                                 final Snackbar snackbar = Snackbar
-                                                        .make(findViewById(R.id.container),"Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
+                                                        .make(findViewById(R.id.container), "Impossivel buscar as categorias no momento", Snackbar.LENGTH_INDEFINITE)
                                                         .setAction("Tentar Novamente", new View.OnClickListener() {
                                                             @Override
                                                             public void onClick(View view) {
@@ -132,7 +130,6 @@ public class Categorias extends AppCompatActivity {
                                                 textView.setTextColor(Color.GREEN);
                                                 snackbar.show();
                                             }
-
                                         } else {
                                             Log.e("Nome Categoria: ", "aaaaa");
                                         }
@@ -144,12 +141,10 @@ public class Categorias extends AppCompatActivity {
                                         Log.e("falha", t.getMessage());
 
                                         final Snackbar snackbar = Snackbar
-                                                .make(findViewById(R.id.container),"Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
+                                                .make(findViewById(R.id.container), "Falha ao Localizar as Categorias", Snackbar.LENGTH_INDEFINITE)
                                                 .setAction("Tentar Novamente", new View.OnClickListener() {
                                                     @Override
                                                     public void onClick(View view) {
-
-
 
 
                                                     }
@@ -161,10 +156,7 @@ public class Categorias extends AppCompatActivity {
                                         snackbar.show();
                                         // finish();
                                     }
-
                                 });
-
-
                             }
                         });
 
@@ -174,19 +166,27 @@ public class Categorias extends AppCompatActivity {
                 snackbar.show();
                 // finish();
             }
-
         });
-
     }
 
-    private void addItem(String categoryTitle) {
+    private void addItem(String categoryTitle, Long idcat) {
 
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.cardview_categoria, conteinerRes, false);
 
         TextView tituloCategoria = (TextView) cardView.findViewById(R.id.titulo);
-        //TextView mensagem = (TextView) cardView.findViewById(R.id.mensagem);
+        TextView idcategoria = (TextView) cardView.findViewById(R.id.idcat);
+
         tituloCategoria.setText(categoryTitle);
-        // mensagem.setText();
+        idcategoria.setText(idcat.toString());
+
+        //  Na criação do CARDVIEW, definir o Listener do ONCLICK
+        cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String id= ((TextView)v.findViewById(R.id.idcat)).getText().toString();
+                Toast.makeText(Categorias.this, id,Toast.LENGTH_SHORT).show();
+            }
+        });
 
         //  Caso seja uma boa uma imagem, podemos incorporar incluindo o codigo abaixo e no for um Switch Case para setar uma img de cada Categoria
         /*ImageView RenderizarImageInId = (ImageView) cardView.findViewById(R.id.imagem);
@@ -205,4 +205,5 @@ public class Categorias extends AppCompatActivity {
 
         conteinerRes.addView(cardView);
     }
+
 }
