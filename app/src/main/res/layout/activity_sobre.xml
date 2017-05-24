@@ -14,21 +14,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:id="@+id/container1"
         android:orientation="horizontal"
-        android:layout_weight="0.5"
-
-        >
+        android:layout_weight="0.5">
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
+        android:id="@+id/conteiner2"
         android:orientation="horizontal"
-        android:layout_weight="0.5"
-
-        >
+        android:layout_weight="0.5">
 
     </LinearLayout>
 
