@@ -3,17 +3,9 @@ package br.com.enforce.hippov1;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
-import android.widget.TableLayout;
-
-import java.util.ArrayList;
-
-import br.com.enforce.hippov1.listas.Constantes;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,13 +14,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pagamento);
+        setContentView(R.layout.activity_main);
+
         final SharedPreferences prefs = getSharedPreferences("MeusDados", MODE_PRIVATE);
 
         String configuracao = prefs.getString("termos", null);
         termos = (CheckBox) findViewById(R.id.termos);
-        if(configuracao==null){
 
+        if(configuracao==null){
 
             termos.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
                 @Override
@@ -40,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                         editor.putString("termos", "ok");
                         editor.apply();
                         //vai para outra
-                        Intent intent = new Intent(MainActivity.this, Produto.class);
+                        Intent intent = new Intent(MainActivity.this, Categorias.class);
                         startActivity(intent);
 
                         finish();
@@ -49,21 +42,14 @@ public class MainActivity extends AppCompatActivity {
 
                     }
 
-
                 }
             });
 
-
         }else{
             // vai para outra
-            Intent intent = new Intent(this, Produto.class);
+            Intent intent = new Intent(this, Categorias.class);
             startActivity(intent);
-
         }
 
-
     }
-
-
-
 }
