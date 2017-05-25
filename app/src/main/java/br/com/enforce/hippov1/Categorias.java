@@ -2,10 +2,9 @@ package br.com.enforce.hippov1;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.annotation.StringRes;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.List;
-
 import br.com.enforce.hippov1.rest.CategoriaRest;
 import br.com.enforce.hippov1.rest.HippoServices;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
@@ -169,7 +166,7 @@ public class Categorias extends AppCompatActivity {
         });
     }
 
-    private void addItem(String categoryTitle, Long idcat) {
+    private void addItem(String categoryTitle, final Long idcat) {
 
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.cardview_categoria, conteinerRes, false);
 
@@ -184,7 +181,13 @@ public class Categorias extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String id= ((TextView)v.findViewById(R.id.idcat)).getText().toString();
-                Toast.makeText(Categorias.this, id,Toast.LENGTH_SHORT).show();
+//              Toast.makeText(Categorias.this, id,Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(Categorias.this, ProdutoCategoria.class);
+                Bundle param = new Bundle();
+                param.putString("idCategoria", String.valueOf(idcat));
+                intent.putExtras(param);
+                startActivity(intent);
             }
         });
 

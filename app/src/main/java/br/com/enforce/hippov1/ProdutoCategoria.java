@@ -24,6 +24,13 @@ public class ProdutoCategoria extends MainActivity {
         cadProduto1 = (ViewGroup) findViewById(R.id.cat_produto1);
         cadProduto2 = (ViewGroup) findViewById(R.id.cat_produto2);
 
+        Bundle paramCat = getIntent().getExtras();
+        int idcat = -1; // or other values
+        if(paramCat != null)
+            idcat = paramCat.getInt("idCategoria");
+
+
+
         addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
 
         addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
