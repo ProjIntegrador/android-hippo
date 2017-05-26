@@ -22,7 +22,8 @@ public class ProdutoCategoria extends MainActivity {
         cadProduto1 = (ViewGroup) findViewById(R.id.cat_produto1);
         cadProduto2 = (ViewGroup) findViewById(R.id.cat_produto2);
 
-        int idCategoria = getIntent().getExtras().getInt("idCategoria");
+        Bundle b = this.getIntent().getExtras();
+        int idCategoria = Integer.parseInt(b.getString("idCategoria"));
 
         if(idCategoria > 0 ){
 
