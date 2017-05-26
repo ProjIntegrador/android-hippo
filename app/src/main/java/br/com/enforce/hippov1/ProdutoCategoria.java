@@ -10,9 +10,6 @@ import android.widget.ImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
-/**
- * Created by Danielzinho on 24/05/2017.
- */
 
 public class ProdutoCategoria extends MainActivity {
 
@@ -25,12 +22,13 @@ public class ProdutoCategoria extends MainActivity {
         cadProduto1 = (ViewGroup) findViewById(R.id.cat_produto1);
         cadProduto2 = (ViewGroup) findViewById(R.id.cat_produto2);
 
-        Intent receptParams= getIntent();
-        Bundle paramCat = receptParams.getExtras();
+        int idCategoria = getIntent().getExtras().getInt("idCategoria");
 
-        String idcat = getIntent().getStringExtra("idCat");  // or other values
-        if(paramCat != null)
-            idcat = paramCat.getString("idCategoria");
+        if(idCategoria > 0 ){
+
+        }else {
+//            idcat = paramCat.getString("idCategoria");
+        }
 
 
 
