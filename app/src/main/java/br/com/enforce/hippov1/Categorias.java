@@ -180,13 +180,13 @@ public class Categorias extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id= ((TextView)v.findViewById(R.id.idcat)).getText().toString();
-//              Toast.makeText(Categorias.this, id,Toast.LENGTH_SHORT).show();
+
+                String id = ((TextView)v.findViewById(R.id.idcat)).getText().toString();
+
+                Toast.makeText(Categorias.this, id, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(Categorias.this, ProdutoCategoria.class);
-                Bundle param = new Bundle();
-                param.putString("idCategoria", String.valueOf(idcat));
-                intent.putExtras(param);
+                intent.putExtra("idCategoria", id);
                 startActivity(intent);
             }
         });

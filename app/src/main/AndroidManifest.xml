@@ -27,8 +27,8 @@
         <activity android:name=".Login" />
         <activity android:name=".Carrinho" />
         <activity android:name=".Pagamento"/>
-        <activity android:name=".Sobre"> </activity>
-
+        <activity android:name=".ReadQr"/>
+        <activity android:name=".Sobre">
 
     </application>
 

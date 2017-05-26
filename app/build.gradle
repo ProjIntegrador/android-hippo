@@ -17,10 +17,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    packagingOptions{
+    packagingOptions {
         exclude 'META-INF/LICENSE'
     }
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -38,5 +39,6 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.8.0'
     compile 'com.github.bumptech.glide:glide:4.0.0-RC0'
     compile 'com.squareup.retrofit2:converter-jackson:2.3.0'
+    compile 'me.dm7.barcodescanner:zxing:1.9.2'
     testCompile 'junit:junit:4.12'
 }
