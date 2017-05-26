@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <!--LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria 1"
+            android:width="0dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/tam_cat"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria 2"
+            android:width="0dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/tam_cat"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria 3"
+            android:width="0dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/tam_cat"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria 4"
+            android:width="0dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/tam_cat"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Categoria 5"
+            android:width="0dp"
+            android:layout_weight="5"
+            android:textSize="@dimen/tam_cat"/>
+
+    </LinearLayout >
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/lv_produto" /-->
+    
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/produto_tl_menu" />
+    
+</LinearLayout>

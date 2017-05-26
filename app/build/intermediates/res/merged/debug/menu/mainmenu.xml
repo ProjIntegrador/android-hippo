@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+         xmlns:app="http://schemas.android.com/apk/res-auto">
+        <item
+            android:id="@+id/opcao01"
+            android:title="Home"
+            android:icon="@android:drawable/icone_carrinho"
+            app:showAsAction="always"/>
+        <item
+            android:id="@+id/opcao02"
+            android:title="Carrinho"/>
+        <item android:title="Sobre"
+            android:id="@+id/opcao03"/>
+    </menu>

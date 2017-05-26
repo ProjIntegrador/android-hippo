@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:context="br.com.enforce.hippov1.Carrinho">
+
+    <ImageView
+        android:id="@+id/imagem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_no_image"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="184dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imagem1"
+        android:layout_marginTop="107dp" />
+
+    <ImageView
+        android:id="@+id/imagem1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_no_image"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="130dp"
+        android:layout_alignBottom="@+id/nomeProduto1"
+        android:layout_alignStart="@+id/imagem2" />
+
+    <ImageView
+        android:id="@+id/imagem2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_no_image"
+        tools:layout_editor_absoluteX="45dp"
+        tools:layout_editor_absoluteY="239dp"
+        android:layout_alignTop="@+id/nomeProduto2"
+        android:layout_alignStart="@+id/button" />
+
+    <TextView
+        android:id="@+id/nomeProduto"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="Produto1"
+        tools:layout_editor_absoluteY="134dp"
+        tools:layout_editor_absoluteX="126dp"
+        android:layout_alignBottom="@+id/imagem"
+        android:layout_alignStart="@+id/nomeProduto1" />
+
+    <TextView
+        android:id="@+id/nomeProduto1"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="Produto2"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="184dp"
+        android:layout_alignBaseline="@+id/precProduto2"
+        android:layout_alignBottom="@+id/precProduto2"
+        android:layout_alignStart="@+id/nomeProduto2" />
+
+    <TextView
+        android:id="@+id/nomeProduto2"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="Produto3"
+        tools:layout_editor_absoluteY="241dp"
+        tools:layout_editor_absoluteX="126dp"
+        android:layout_alignBaseline="@+id/precProduto1"
+        android:layout_alignBottom="@+id/precProduto1"
+        android:layout_alignEnd="@+id/button" />
+
+    <TextView
+        android:id="@+id/precProduto"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="R$ 0,00"
+        tools:layout_editor_absoluteY="134dp"
+        tools:layout_editor_absoluteX="217dp"
+        android:layout_alignBaseline="@+id/nomeProduto"
+        android:layout_alignBottom="@+id/nomeProduto"
+        android:layout_alignStart="@+id/precProduto2" />
+
+    <TextView
+        android:id="@+id/precProduto2"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="R$ 0,00"
+        tools:layout_editor_absoluteX="217dp"
+        tools:layout_editor_absoluteY="241dp"
+        android:layout_alignTop="@+id/apagar1"
+        android:layout_alignStart="@+id/precProduto1" />
+
+    <TextView
+        android:id="@+id/precProduto1"
+        android:layout_width="77dp"
+        android:layout_height="28dp"
+        android:text="R$ 0,00"
+        tools:layout_editor_absoluteY="184dp"
+        tools:layout_editor_absoluteX="217dp"
+        android:layout_alignTop="@+id/apagar"
+        android:layout_alignStart="@+id/button1" />
+
+    <ImageView
+
+        android:id="@+id/apagar"
+        android:layout_width="31dp"
+        android:layout_height="28dp"
+        app:srcCompat="@android:drawable/ic_delete"
+        tools:layout_editor_absoluteY="241dp"
+        tools:layout_editor_absoluteX="308dp"
+        android:layout_below="@+id/apagar1"
+        android:layout_alignStart="@+id/apagar1"
+        android:layout_marginTop="43dp" />
+
+    <ImageView
+        android:id="@+id/apagar1"
+        android:layout_width="31dp"
+        android:layout_height="28dp"
+        app:srcCompat="@android:drawable/ic_delete"
+        tools:layout_editor_absoluteX="308dp"
+        tools:layout_editor_absoluteY="184dp"
+        android:layout_below="@+id/apagar2"
+        android:layout_alignStart="@+id/apagar2"
+        android:layout_marginTop="45dp" />
+
+    <ImageView
+        android:id="@+id/apagar2"
+        android:layout_width="31dp"
+        android:layout_height="28dp"
+        app:srcCompat="@android:drawable/ic_delete"
+        tools:layout_editor_absoluteY="134dp"
+        tools:layout_editor_absoluteX="308dp"
+        android:layout_alignTop="@+id/precProduto"
+        android:layout_alignEnd="@+id/button1" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="155dp"
+        android:layout_height="68dp"
+        android:text="Continuar Comprando"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="413dp"
+        android:layout_alignTop="@+id/button1"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="19dp" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="149dp"
+        android:layout_height="68dp"
+        android:text="Clique Para Efetuar Sua Compra"
+        tools:layout_editor_absoluteX="203dp"
+        tools:layout_editor_absoluteY="413dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="26dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
+
+
+</RelativeLayout>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:context="br.com.enforce.hippov1.DescricaoProduto">
+
+    <TextView
+        android:id="@+id/nomeProduto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="@string/tv_nome_do_produto"
+        android:textSize="18sp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/imagem" />
+
+    <ImageView
+        android:id="@+id/imagem"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_no_image"
+        android:contentDescription="Imagem do Produto"
+        android:layout_marginTop="13dp"
+        android:layout_below="@+id/nomeProduto"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="14dp" />
+
+    <RelativeLayout
+
+        android:id="@+id/pricingSection"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_toEndOf="@+id/imagem"
+        android:layout_alignTop="@+id/imagem"
+        android:layout_marginEnd="10dp"
+        android:layout_above="@+id/infoSection">
+
+        <TextView
+            android:id="@+id/lbl_precProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Preço"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/precProduto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/lbl_precProduto"
+            android:text="$$$$"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/lbl_descontoPromocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:text="Promoção"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/descontoPromocao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="$$$$$"
+            android:layout_toEndOf="@+id/lbl_descontoPromocao"
+            android:layout_marginTop="80sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/lbl_quantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@+id/descontoPromocao"
+            android:text="Quantidade "
+            android:layout_marginTop="115dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:id="@+id/spin_qtd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/lbl_quantidade"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="115dp" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/infoSection"
+        android:layout_width="match_parent"
+        android:layout_height="185sp"
+        android:orientation="vertical"
+        android:layout_below="@+id/imagem"
+        android:layout_marginTop="30dp"
+        android:weightSum="1"
+        android:layout_alignStart="@+id/imagem"
+        android:layout_alignEnd="@+id/pricingSection">
+
+
+    <TextView
+        android:id="@+id/descProduto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="Descrição"
+        android:textSize="15sp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@+id/infoSection"
+        android:layout_alignStart="@+id/imagem" />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>
