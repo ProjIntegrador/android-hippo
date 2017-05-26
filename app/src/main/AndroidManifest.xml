@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Categorias">
+        <activity android:name=".SplashScreen">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".SplashScreen" />
+        <activity android:name=".Categorias" />
         <activity android:name=".ProdutoCategoria" />
         <activity android:name=".Produto" />
         <activity android:name=".DescricaoProduto" />
@@ -28,6 +28,7 @@
         <activity android:name=".Login" />
         <activity android:name=".Carrinho" />
         <activity android:name=".Pagamento"/>
+        <activity android:name=".ReadQr"/>
         <activity android:name=".Sobre">
 
         </activity>
