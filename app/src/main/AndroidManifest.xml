@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +29,7 @@
         <activity android:name=".Carrinho" />
         <activity android:name=".Pagamento"/>
         <activity android:name=".ReadQr"/>
-        <activity android:name=".Sobre">
+        <activity android:name=".Sobre" />
 
     </application>
 
