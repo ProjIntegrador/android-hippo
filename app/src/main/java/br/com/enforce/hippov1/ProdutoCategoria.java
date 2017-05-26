@@ -1,5 +1,6 @@
 package br.com.enforce.hippov1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
@@ -24,10 +25,12 @@ public class ProdutoCategoria extends MainActivity {
         cadProduto1 = (ViewGroup) findViewById(R.id.cat_produto1);
         cadProduto2 = (ViewGroup) findViewById(R.id.cat_produto2);
 
-        Bundle paramCat = getIntent().getExtras();
-        int idcat = -1; // or other values
+        Intent receptParams= getIntent();
+        Bundle paramCat = receptParams.getExtras();
+
+        String idcat = getIntent().getStringExtra("idCat");  // or other values
         if(paramCat != null)
-            idcat = paramCat.getInt("idCategoria");
+            idcat = paramCat.getString("idCategoria");
 
 
 
