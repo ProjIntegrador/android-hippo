@@ -1,103 +1,104 @@
 package br.com.enforce.hippov1.rest;
 
 import java.math.BigDecimal;
-
-/**
- * Created by renato on 01/05/17.
- */
+import java.util.List;
 
 public class ProdutoRest {
 
-        private Long id;
-        private String nome;
-        private String descproduto;
-        private BigDecimal preco;
-        private double descontopromo;
-        private CategoriaRest categoria;
-        private boolean produtoativo;
-        private int iduser;
-        private int qtdminima;
-        private String imagem;
+    private Long id;
+    private String nome;
+    private String descproduto;
+    private BigDecimal preco;
+    private double descontopromo;
+    private CategoriaRest categoria;
+    private boolean produtoativo;
+    private int iduser;
+    private int qtdminima;
+    private String imagem;
+    private List<String> products;
 
+    public Long getId() {
+        return id;
+    }
 
-        public Long getId() {
-            return id;
-        }
+    public String getNome() {
+        return nome;
+    }
 
-        public String getNome() {
-            return nome;
-        }
+    public BigDecimal getPreco() {
+        return preco;
+    }
 
-        public BigDecimal getPreco() {
-            return preco;
-        }
+    public CategoriaRest getCategoria() {
+        return categoria;
+    }
 
-        public CategoriaRest getCategoria() {
-            return categoria;
-        }
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-        public void setId(Long id) {
-            this.id = id;
-        }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-        public void setNome(String nome) {
-            this.nome = nome;
-        }
+    public String getDescproduto() {
+        return descproduto;
+    }
 
-        public String getDescproduto() {
-            return descproduto;
-        }
+    public void setDescproduto(String descproduto) {
+        this.descproduto = descproduto;
+    }
 
-        public void setDescproduto(String descproduto) {
-            this.descproduto = descproduto;
-        }
+    public void setPreco(BigDecimal preco) {
+        this.preco = preco;
+    }
 
-        public void setPreco(BigDecimal preco) {
-            this.preco = preco;
-        }
+    public double getDescontopromo() {
+        return descontopromo;
+    }
 
-        public double getDescontopromo() {
-            return descontopromo;
-        }
+    public void setDescontopromo(double descontopromo) {
+        this.descontopromo = descontopromo;
+    }
 
-        public void setDescontopromo(double descontopromo) {
-            this.descontopromo = descontopromo;
-        }
+    public void setCategoria(CategoriaRest categoria) {
+        this.categoria = categoria;
+    }
 
-        public void setCategoria(CategoriaRest categoria) {
-            this.categoria = categoria;
-        }
+    public boolean isProdutoativo() {
+        return produtoativo;
+    }
 
-        public boolean isProdutoativo() {
-            return produtoativo;
-        }
+    public void setProdutoativo(boolean produtoativo) {
+        this.produtoativo = produtoativo;
+    }
 
-        public void setProdutoativo(boolean produtoativo) {
-            this.produtoativo = produtoativo;
-        }
+    public int getIduser() {
+        return iduser;
+    }
 
-        public int getIduser() {
-            return iduser;
-        }
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
+    }
 
-        public void setIduser(int iduser) {
-            this.iduser = iduser;
-        }
+    public int getQtdminima() {
+        return qtdminima;
+    }
 
-        public int getQtdminima() {
-            return qtdminima;
-        }
+    public void setQtdminima(int qtdminima) {
+        this.qtdminima = qtdminima;
+    }
 
-        public void setQtdminima(int qtdminima) {
-            this.qtdminima = qtdminima;
-        }
+    public String getImagem() {
+        return imagem;
+    }
 
-        public String getImagem() {
-            return imagem;
-        }
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
+    }
 
-        public void setImagem(String imagem) {
-            this.imagem = imagem;
-        }
+    public List<String> getProducts() {
+        return products;
+    }
 
 }

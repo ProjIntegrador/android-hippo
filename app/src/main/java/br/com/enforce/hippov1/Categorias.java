@@ -16,6 +16,7 @@ import java.util.List;
 import br.com.enforce.hippov1.rest.CategoriaRest;
 import br.com.enforce.hippov1.rest.HippoServices;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
+import br.com.enforce.hippov1.tempdata.SingletonHippo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -182,11 +183,9 @@ public class Categorias extends AppCompatActivity {
             public void onClick(View v) {
 
                 String id = ((TextView)v.findViewById(R.id.idcat)).getText().toString();
-
-                Toast.makeText(Categorias.this, id, Toast.LENGTH_SHORT).show();
-
+                SingletonHippo.Instance().setIdCategoria(Integer.parseInt(id));
+//                Toast.makeText(Categorias.this, id, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(Categorias.this, ProdutoCategoria.class);
-                intent.putExtra("idCategoria", id);
                 startActivity(intent);
             }
         });

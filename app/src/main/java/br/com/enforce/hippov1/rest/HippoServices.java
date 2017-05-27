@@ -15,6 +15,10 @@ public interface HippoServices {
     @GET("/webservices/categoria")
     Call<List<CategoriaRest>> responseString();
 
+    //      REQUISIÇAO OBTENDO PRODUTOS DE UMA CATEGORIA
+    @GET("/webservices/produto")
+    Call<ProdutoRest> obtemProdutosPorCategoria(@Query("idCategoria") int idCategoria);
+
     //      PEGA INFORMAÇOES PARA TELA DE PRODUTO
     @GET("/webservices/produto/detalhe")
     Call<ProdutoRest> obtemDetalheProduto(@Query("idProduto") int idProduto);
