@@ -1,5 +1,9 @@
 package br.com.enforce.hippov1.rest;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+
 import java.util.List;
 
 import retrofit2.Call;
@@ -9,6 +13,7 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+@JsonIgnoreProperties (ignoreUnknown = true)
 public interface HippoServices {
 
     //      REQUISIÇAO DAS CATEGORIAS
@@ -16,6 +21,7 @@ public interface HippoServices {
     Call<List<CategoriaRest>> responseString();
 
     //      REQUISIÇAO OBTENDO PRODUTOS DE UMA CATEGORIA
+    @JsonProperty("categoria")
     @GET("/webservices/produto")
     Call<ProdutoRest> obtemProdutosPorCategoria(@Query("idCategoria") int idCategoria);
 

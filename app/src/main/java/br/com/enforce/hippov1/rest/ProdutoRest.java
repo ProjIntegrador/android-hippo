@@ -1,6 +1,7 @@
 package br.com.enforce.hippov1.rest;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProdutoRest {
@@ -97,8 +98,14 @@ public class ProdutoRest {
         this.imagem = imagem;
     }
 
+    //  Devolver produtos da categoria:
+    public void produtos(){
+        ArrayList<String> produtos = new ArrayList<String>();
+    }
+
     public List<String> getProducts() {
         return products;
     }
+
 
 }

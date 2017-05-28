@@ -62,6 +62,7 @@
 
     <!-- As linha abaixo pertencem a tela Activity-Categorias -->
     <string name="choose_any_category">Selecione uma categoria para comprar produtos</string>
-
+    <!--    SOBRE / ABOUT  -->
+    <string name="title_activity_about">Grupo Enforce</string>
 
 </resources>

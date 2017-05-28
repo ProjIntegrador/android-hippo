@@ -23,8 +23,6 @@ import retrofit2.Response;
 
 public class ProdutoCategoria extends MainActivity {
 
-    private ViewGroup cadProduto1;
-    private ViewGroup cadProduto2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +37,7 @@ public class ProdutoCategoria extends MainActivity {
             Call call = (Call) new RetrofitInitializer().getHippoServices().obtemProdutosPorCategoria(idCategoria);
             call.enqueue(new Callback<List<ProdutoRest>>() {
                 @Override
-                public void onResponse(Call<List<ProdutoRest>> call, Response<List<ProdutoRest>> response) {
+                public void onResponse(final Call<List<ProdutoRest>> call, Response<List<ProdutoRest>> response) {
 
                     if (response.isSuccessful()) {
                         List<ProdutoRest> productCategoria = response.body();
@@ -58,9 +56,10 @@ public class ProdutoCategoria extends MainActivity {
                 }
 
                 @Override
-                public void onFailure(Call call, Throwable t) {
-
+                public void onFailure(Call<List<ProdutoRest>> call, Throwable t) {
+                    Log.e( "falha: " , t.getMessage() );
                 }
+
             });
 
 
@@ -71,15 +70,19 @@ public class ProdutoCategoria extends MainActivity {
 
 
 
-        addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
-
-        addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
-
-        addProd2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
-
-        addProd2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
-
     }
+
+
+//        addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
+//
+//        addProd1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
+//
+//        addProd2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
+//
+//        addProd2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png");
+
+    private ViewGroup cadProduto1;
+    private ViewGroup cadProduto2;
 
     private void addProd1(String urls) {
 

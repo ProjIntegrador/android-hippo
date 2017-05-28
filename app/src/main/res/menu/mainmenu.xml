@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-         xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:myapp="http://schemas.android.com/tools">
         <item
             android:id="@+id/ophome"
             android:title="Home"
@@ -10,9 +11,11 @@
             android:id="@+id/opcar"
             android:title="Carrinho"
             android:icon="@drawable/icone_carrinho"
-            />
+            myapp:showAsAction="ifRoom" />
+
         <item android:title="Sobre"
             android:id="@+id/opabout"
             android:icon="@drawable/sobreicon"
-            />
-    </menu>
+            myapp:showAsAction="ifRoom" />
+
+</menu>
