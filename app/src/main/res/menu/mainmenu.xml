@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
          xmlns:app="http://schemas.android.com/apk/res-auto">
         <item
-            android:id="@+id/opcao01"
+            android:id="@+id/ophome"
             android:title="Home"
             android:icon="@drawable/homeicon"
             app:showAsAction="always"/>
         <item
-            android:id="@+id/opcao02"
+            android:id="@+id/opcar"
             android:title="Carrinho"
             android:icon="@drawable/icone_carrinho"
             />
         <item android:title="Sobre"
-            android:id="@+id/opcao03"
+            android:id="@+id/opabout"
             android:icon="@drawable/sobreicon"
             />
     </menu>
