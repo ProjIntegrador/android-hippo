@@ -11,11 +11,10 @@
             android:id="@+id/opcar"
             android:title="Carrinho"
             android:icon="@drawable/icone_carrinho"
-            myapp:showAsAction="ifRoom" />
+            app:showAsAction="always"/>
 
         <item android:title="Sobre"
             android:id="@+id/opabout"
             android:icon="@drawable/sobreicon"
             myapp:showAsAction="ifRoom" />
-
 </menu>

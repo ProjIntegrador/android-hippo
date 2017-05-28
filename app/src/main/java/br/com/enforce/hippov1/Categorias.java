@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -207,5 +209,37 @@ public class Categorias extends AppCompatActivity {
 
         conteinerRes.addView(cardView);
     }
+
+    //  MENU
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.ophome) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opcar) {
+            Intent intent = new Intent(this, Carrinho.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opabout) {
+            Intent intent = new Intent(this, Sobre.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 
 }

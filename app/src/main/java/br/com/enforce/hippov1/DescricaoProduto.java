@@ -1,11 +1,14 @@
 package br.com.enforce.hippov1;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -84,4 +87,33 @@ public class DescricaoProduto extends Activity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+        return true;
+    }
+
+
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.ophome) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opcar) {
+            Intent intent = new Intent(this, Carrinho.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opabout) {
+            Intent intent = new Intent(this, Sobre.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
 }
