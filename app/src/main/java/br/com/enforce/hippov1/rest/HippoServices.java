@@ -21,9 +21,9 @@ public interface HippoServices {
     Call<List<CategoriaRest>> responseString();
 
     //      REQUISIÇAO OBTENDO PRODUTOS DE UMA CATEGORIA
-    @JsonProperty("categoria")
+//    @JsonProperty("categoria")
     @GET("/webservices/produto")
-    Call<ProdutoRest> obtemProdutosPorCategoria(@Query("idCategoria") int idCategoria);
+    Call<List<ProdutoRest>> obtemProdutosPorCategoria(@Query("idCategoria") int idCategoria);
 
     //      PEGA INFORMAÇOES PARA TELA DE PRODUTO
     @GET("/webservices/produto/detalhe")

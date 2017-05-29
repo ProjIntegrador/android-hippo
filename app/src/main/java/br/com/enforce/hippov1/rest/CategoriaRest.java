@@ -1,27 +1,15 @@
 package br.com.enforce.hippov1.rest;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CategoriaRest {
 
-    private Long id;
-    private String nome;
-    private List<String> cat;
+    private Long idCategoria;
+    private String nomeCategoria;
 
-    public Long getId() {
-        return id;
+    public Long getIdCategoria() {
+        return idCategoria;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void categorias(){
-        ArrayList<String> cat = new ArrayList<String>();
-    }
-
-    public List<String> getList() {
-        return cat;
+    public String getNomeCategoria() {
+        return nomeCategoria;
     }
 }

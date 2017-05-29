@@ -14,6 +14,7 @@ import br.com.enforce.hippov1.rest.AddCookiesInterceptor;
 import br.com.enforce.hippov1.rest.HippoServices;
 import br.com.enforce.hippov1.rest.ClienteLoginRest;
 import br.com.enforce.hippov1.rest.ReceivedCookiesInterceptor;
+import br.com.enforce.hippov1.rest.RetrofitInitializer;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,19 +47,8 @@ public class Login extends AppCompatActivity {
             public void onClick(View v) {
 
 
-                OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-                okHttpClient.interceptors().add(new AddCookiesInterceptor(getApplicationContext()));
-                okHttpClient.interceptors().add(new ReceivedCookiesInterceptor(getApplicationContext()));
-
-                Log.i("senha", ""+senhaCliente.getText().toString());
                 //  INICIA COMUNICAÇÃO COM O WS de Login
-                Retrofit retrofit = new Retrofit.Builder()
-                        .baseUrl("http://191.252.61.93:8080/")
-                        .client(okHttpClient.build())
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-
-                HippoServices service = retrofit.create(HippoServices.class);
+                HippoServices service = new RetrofitInitializer().getHippoServices();
                 Call<ClienteLoginRest> retorno = service.autenticaCliente(emailCliente.getText().toString(), senhaCliente.getText().toString());
 
                 retorno.enqueue(new Callback<ClienteLoginRest>() {

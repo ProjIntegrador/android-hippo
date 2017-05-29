@@ -37,15 +37,6 @@ public class Categorias extends AppCompatActivity {
 
         conteinerRes = (ViewGroup) findViewById(R.id.container);
 
-        CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.cardview_categoria, conteinerRes, false);
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Test",
-                        Toast.LENGTH_LONG).show();
-            }
-        });
-
         Call call = (Call) new RetrofitInitializer().getHippoServices().responseString();
         call.enqueue(new Callback<List<CategoriaRest>>() {
             @Override
@@ -59,7 +50,7 @@ public class Categorias extends AppCompatActivity {
                         Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
 
                         for (CategoriaRest categoria : totalCat) {
-                            addItem(categoria.getNome(), categoria.getId());
+                            addItem(categoria.getNomeCategoria(), categoria.getIdCategoria());
                         }
                     } else {
                         Log.e("Sem categorias", "aaaaa");
@@ -98,7 +89,7 @@ public class Categorias extends AppCompatActivity {
                                         .addConverterFactory(GsonConverterFactory.create())
                                         .build();
 
-                                HippoServices service = retrofit.create(HippoServices.class);
+                                HippoServices service = new RetrofitInitializer().getHippoServices();
                                 final Call<List<CategoriaRest>> retorno = service.responseString();
 
                                 retorno.enqueue(new Callback<List<CategoriaRest>>() {
@@ -112,7 +103,7 @@ public class Categorias extends AppCompatActivity {
                                                 Log.e("Nome Categoria: ", "categorias : " + totalCat.size());
 
                                                 for (CategoriaRest categoria : totalCat) {
-                                                    addItem(categoria.getNome(), categoria.getId());
+                                                    addItem(categoria.getNomeCategoria(), categoria.getIdCategoria());
                                                 }
                                             } else {
                                                 Log.e("Sem categorias", "aaaaa");
@@ -183,29 +174,12 @@ public class Categorias extends AppCompatActivity {
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                String id = ((TextView)v.findViewById(R.id.idcat)).getText().toString();
-                SingletonHippo.Instance().setIdCategoria(Integer.parseInt(id));
-//                Toast.makeText(Categorias.this, id, Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(Categorias.this, ProdutoCategoria.class);
-                startActivity(intent);
+            String id = ((TextView)v.findViewById(R.id.idcat)).getText().toString();
+            Intent intent = new Intent(Categorias.this, ProdutoCategoria.class);
+            intent.putExtra( "idCategoria", id);
+            startActivity(intent);
             }
         });
-
-        //  Caso seja uma boa uma imagem, podemos incorporar incluindo o codigo abaixo e no for um Switch Case para setar uma img de cada Categoria
-        /*ImageView RenderizarImageInId = (ImageView) cardView.findViewById(R.id.imagem);
-        ImageLoader imageLoader = ImageLoader.getInstance();
-        imageLoader.init(ImageLoaderConfiguration.createDefault(this));
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-                .showImageOnLoading(R.drawable.loading)
-                .showImageForEmptyUri(R.drawable.no_image)
-                .showImageOnFail(R.drawable.no_image)
-                .cacheInMemory(true)
-                .cacheOnDisk(true)
-                .build();
-
-        imageLoader.displayImage(urlArrposition, RenderizarImageInId, options);
-        */
 
         conteinerRes.addView(cardView);
     }

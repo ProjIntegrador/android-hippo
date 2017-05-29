@@ -2,92 +2,82 @@ package br.com.enforce.hippov1.rest;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.List;
 
 public class ProdutoRest {
 
-    private Long id;
-    private String nome;
-    private String descproduto;
-    private BigDecimal preco;
-    private double descontopromo;
+    private Long idProduto;
+    private String nomeProduto;
+    private String descProduto;
+    private BigDecimal precProduto;
+    private double descontoPromocao;
     private CategoriaRest categoria;
-    private boolean produtoativo;
-    private int iduser;
-    private int qtdminima;
+    private boolean ativoProduto;
+
+    private int qtdMinEstoque;
     private String imagem;
-    private List<String> products;
 
-    public Long getId() {
-        return id;
+    public Long getIdProduto() {
+        return idProduto;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeProduto() {
+        return nomeProduto;
     }
 
-    public BigDecimal getPreco() {
-        return preco;
+    public BigDecimal getPrecProduto() {
+        return precProduto;
     }
 
     public CategoriaRest getCategoria() {
         return categoria;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setIdProduto(Long idProduto) {
+        this.idProduto = idProduto;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 
-    public String getDescproduto() {
-        return descproduto;
+    public String getDescProduto() {
+        return descProduto;
     }
 
-    public void setDescproduto(String descproduto) {
-        this.descproduto = descproduto;
+    public void setDescProduto(String descProduto) {
+        this.descProduto = descProduto;
     }
 
-    public void setPreco(BigDecimal preco) {
-        this.preco = preco;
+    public void setPrecProduto(BigDecimal precProduto) {
+        this.precProduto = precProduto;
     }
 
-    public double getDescontopromo() {
-        return descontopromo;
+    public double getDescontoPromocao() {
+        return descontoPromocao;
     }
 
-    public void setDescontopromo(double descontopromo) {
-        this.descontopromo = descontopromo;
+    public void setDescontoPromocao(double descontoPromocao) {
+        this.descontoPromocao = descontoPromocao;
     }
 
     public void setCategoria(CategoriaRest categoria) {
         this.categoria = categoria;
     }
 
-    public boolean isProdutoativo() {
-        return produtoativo;
+    public boolean isAtivoProduto() {
+        return ativoProduto;
     }
 
-    public void setProdutoativo(boolean produtoativo) {
-        this.produtoativo = produtoativo;
+    public void setAtivoProduto(boolean ativoProduto) {
+        this.ativoProduto = ativoProduto;
     }
 
-    public int getIduser() {
-        return iduser;
+    public int getQtdMinEstoque() {
+        return qtdMinEstoque;
     }
 
-    public void setIduser(int iduser) {
-        this.iduser = iduser;
-    }
-
-    public int getQtdminima() {
-        return qtdminima;
-    }
-
-    public void setQtdminima(int qtdminima) {
-        this.qtdminima = qtdminima;
+    public void setQtdMinEstoque(int qtdMinEstoque) {
+        this.qtdMinEstoque = qtdMinEstoque;
     }
 
     public String getImagem() {
@@ -101,10 +91,6 @@ public class ProdutoRest {
     //  Devolver produtos da categoria:
     public void produtos(){
         ArrayList<String> produtos = new ArrayList<String>();
-    }
-
-    public List<String> getProducts() {
-        return products;
     }
 
 

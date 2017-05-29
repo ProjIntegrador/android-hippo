@@ -89,11 +89,10 @@
 
         <Spinner
             android:id="@+id/spin_qtd"
-            android:layout_width="match_parent"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/lbl_quantidade"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="115dp" />
+            android:layout_alignParentEnd="true" />
 
     </RelativeLayout>
 
@@ -121,6 +120,16 @@
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_add_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignEnd="@+id/infoSection"
+        android:layout_below="@+id/infoSection"
+        android:onClick="add_cart"
+        android:text="Adicionar ao carrinho" />
 
 
 </RelativeLayout>
