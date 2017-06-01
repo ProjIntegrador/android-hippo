@@ -1,25 +1,22 @@
 package br.com.enforce.hippov1;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.enforce.hippov1.entities.Item;
 import br.com.enforce.hippov1.tempdata.SingletonHippo;
 
 public class Carrinho extends AppCompatActivity {
-
-    private TextView nomeProduto;
-    private TextView nomeProduto1;
-    private TextView nomeProduto2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +53,16 @@ public class Carrinho extends AppCompatActivity {
         }
 
 
+    }
+
+    public void continue_shop(View v) {
+        Intent intent = new Intent(Carrinho.this, Categorias.class);
+        startActivity(intent);
+    }
+
+    public void checkout(View v) {
+        Intent intent = new Intent(Carrinho.this, Pagamento.class);
+        startActivity(intent);
     }
 
     @Override

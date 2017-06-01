@@ -1,9 +1,10 @@
 package br.com.enforce.hippov1.rest;
 
+import android.content.Context;
+
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class RetrofitInitializer {
 
@@ -11,8 +12,18 @@ public class RetrofitInitializer {
 
     public RetrofitInitializer() {
         OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-//        okHttpClient.interceptors().add(new AddCookiesInterceptor(getApplicationContext()));
-//        okHttpClient.interceptors().add(new ReceivedCookiesInterceptor(getApplicationContext()));
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://127.0.0.1:8080/webservices/")
+                .client(okHttpClient.build())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+    }
+
+    public RetrofitInitializer(Context applicationContext) {
+        OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
+        okHttpClient.interceptors().add(new AddCookiesInterceptor(applicationContext));
+        okHttpClient.interceptors().add(new ReceivedCookiesInterceptor(applicationContext));
 
         retrofit = new Retrofit.Builder()
                 .baseUrl("http://127.0.0.1:8080/webservices/")

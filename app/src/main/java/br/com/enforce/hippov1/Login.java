@@ -48,23 +48,26 @@ public class Login extends AppCompatActivity {
 
 
                 //  INICIA COMUNICAÇÃO COM O WS de Login
-                HippoServices service = new RetrofitInitializer().getHippoServices();
-                Call<ClienteLoginRest> retorno = service.autenticaCliente(emailCliente.getText().toString(), senhaCliente.getText().toString());
+                HippoServices service = new RetrofitInitializer(getApplicationContext()).getHippoServices();
+                Call<Void> retorno = service.autenticaCliente(emailCliente.getText().toString(), senhaCliente.getText().toString());
 
-                retorno.enqueue(new Callback<ClienteLoginRest>() {
+                retorno.enqueue(new Callback<Void>() {
                     @Override
-                    public void onResponse(Call<ClienteLoginRest> call, Response<ClienteLoginRest> response) {
+                    public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
                             Log.i("retorno", "raw : "+response.raw().body());
-                            ClienteLoginRest cliente = response.body();
-                            Log.i("retorno", "id : "+cliente.getIdCliente());
+//                            ClienteLoginRest cliente = response.body();
+//                            Log.i("retorno", "id : "+cliente.getIdCliente());
+                            Intent intent = new Intent(Login.this, Pagamento.class);
+                            startActivity(intent);
+                            return;
                         } else {
                             Log.i("return_error", response.body().toString());
                         }
                     }
 
                     @Override
-                    public void onFailure(Call<ClienteLoginRest> call, Throwable t) {
+                    public void onFailure(Call<Void> call, Throwable t) {
                         Log.e("falha", t.getMessage());
                         finish();
                     }
@@ -75,15 +78,6 @@ public class Login extends AppCompatActivity {
 
             }
         });
-
-
-        /* @Override
-        protected void onPostExecute(String emailCliente, String senhaCliente){
-
-
-
-
-        }*/
 
 
     }

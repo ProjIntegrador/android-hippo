@@ -2,6 +2,7 @@ package br.com.enforce.hippov1.rest;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
 
 import java.io.IOException;
 import java.util.HashSet;
@@ -26,6 +27,7 @@ public class ReceivedCookiesInterceptor implements Interceptor {
             HashSet<String> cookies = new HashSet<>();
 
             for (String header : originalResponse.headers("Set-Cookie")) {
+                Log.v("OkHttp", "Set Header: " + header);
                 cookies.add(header);
             }
 

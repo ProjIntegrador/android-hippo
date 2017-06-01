@@ -1,44 +1,98 @@
 package br.com.enforce.hippov1.rest;
 
 
+import java.util.Date;
+
 public class ClienteLoginRest {
 
     private Long idCliente;
+    private String nomeCompletoCliente;
     private String emailCliente;
     private String senhaCliente;
-    private String nomeUsuario;
-    private String tipoPerfil;
-    private boolean usuarioAtivo;
-
-    public ClienteLoginRest(String emailCliente, String senhaCliente, String nomeUsuario, String tipoPerfil, boolean usuarioAtivo) {
-        this.emailCliente = emailCliente;
-        this.senhaCliente = senhaCliente;
-        this.nomeUsuario = nomeUsuario;
-        this.tipoPerfil = tipoPerfil;
-        this.usuarioAtivo = usuarioAtivo;
-    }
+    private String CPFCliente;
+    private String celularCliente;
+    private String telComercialCliente;
+    private String telResidencialCliente;
+//    private Date dtNascCliente;
+    private Integer recebeNewsLetter;
 
     public Long getIdCliente() {
         return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String getNomeCompletoCliente() {
+        return nomeCompletoCliente;
+    }
+
+    public void setNomeCompletoCliente(String nomeCompletoCliente) {
+        this.nomeCompletoCliente = nomeCompletoCliente;
     }
 
     public String getEmailCliente() {
         return emailCliente;
     }
 
+    public void setEmailCliente(String emailCliente) {
+        this.emailCliente = emailCliente;
+    }
+
     public String getSenhaCliente() {
         return senhaCliente;
     }
 
-    public String getNomeUsuario() {
-        return nomeUsuario;
+    public void setSenhaCliente(String senhaCliente) {
+        this.senhaCliente = senhaCliente;
     }
 
-    public String getTipoPerfil() {
-        return tipoPerfil;
+    public String getCPFCliente() {
+        return CPFCliente;
     }
 
-    public boolean isUsuarioAtivo() {
-        return usuarioAtivo;
+    public void setCPFCliente(String CPFCliente) {
+        this.CPFCliente = CPFCliente;
+    }
+
+    public String getCelularCliente() {
+        return celularCliente;
+    }
+
+    public void setCelularCliente(String celularCliente) {
+        this.celularCliente = celularCliente;
+    }
+
+    public String getTelComercialCliente() {
+        return telComercialCliente;
+    }
+
+    public void setTelComercialCliente(String telComercialCliente) {
+        this.telComercialCliente = telComercialCliente;
+    }
+
+    public String getTelResidencialCliente() {
+        return telResidencialCliente;
+    }
+
+    public void setTelResidencialCliente(String telResidencialCliente) {
+        this.telResidencialCliente = telResidencialCliente;
+    }
+
+//    public Date getDtNascCliente() {
+//        return dtNascCliente;
+//    }
+//
+//    public void setDtNascCliente(Date dtNascCliente) {
+//        this.dtNascCliente = dtNascCliente;
+//    }
+
+    public Integer getRecebeNewsLetter() {
+        return recebeNewsLetter;
+    }
+
+    public void setRecebeNewsLetter(Integer recebeNewsLetter) {
+        this.recebeNewsLetter = recebeNewsLetter;
     }
 }

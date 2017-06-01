@@ -33,8 +33,8 @@ public class AddCookiesInterceptor implements Interceptor {
 
 //        HashSet<String> preferences = (HashSet<String>) PreferenceManager.getDefaultSharedPreferences(context).getStringSet(PREF_COOKIES, new HashSet<String>());
         for (String cookie : preferences) {
-            builder.addHeader("Cookie", cookie);
             Log.v("OkHttp", "Adding Header: " + cookie); // This is done so I know which headers are being added; this interceptor is used after the normal logging of OkHttp
+            builder.addHeader("Cookie", cookie);
         } // for
 
         return chain.proceed(builder.build());

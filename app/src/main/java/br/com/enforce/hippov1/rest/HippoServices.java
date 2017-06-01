@@ -1,12 +1,11 @@
 package br.com.enforce.hippov1.rest;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -32,9 +31,15 @@ public interface HippoServices {
     //      POST DE AUTENTICAÇAO do LOGIN
     @FormUrlEncoded
     @POST("/webservices/login")
-    Call<ClienteLoginRest> autenticaCliente(
+    Call<Void> autenticaCliente(
             @Field("emailCliente") String emailCliente,
             @Field("senhaCliente") String senhaCliente
     );
+
+    @GET("/webservices/cliente/")
+    Call<ClienteLoginRest> clienteAutenticado();
+
+    @POST("/webservices/pedido")
+    Call<Pedido> submetePedido(@Body Pedido pedido);
 
 }
