@@ -14,7 +14,7 @@ public class RetrofitInitializer {
         OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://127.0.0.1:8080/webservices/")
+                .baseUrl("http://191.252.61.93:8080/webservices/")
                 .client(okHttpClient.build())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -26,7 +26,7 @@ public class RetrofitInitializer {
         okHttpClient.interceptors().add(new ReceivedCookiesInterceptor(applicationContext));
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://127.0.0.1:8080/webservices/")
+                .baseUrl("http://191.252.61.93:8080/webservices/")
                 .client(okHttpClient.build())
 //                .addConverterFactory(JacksonConverterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())

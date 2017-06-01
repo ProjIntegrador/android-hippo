@@ -30,16 +30,15 @@ public class Sobre extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-
         cadsimages1 = (ViewGroup) findViewById(R.id.container1);
         cadsimages2 = (ViewGroup) findViewById(R.id.conteiner2);
+
         //add henrique
-        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAArcAAAAJDhlMTc5MmExLWZjYjItNDY1Ny05NDBkLWM4Y2RlOTU1YWViZQ.jpg", "Henrique", "hprigio/");
+        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAArcAAAAJDhlMTc5MmExLWZjYjItNDY1Ny05NDBkLWM4Y2RlOTU1YWViZQ.jpg", "Henrique", "hprigio");
         //add daniel
-        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAdeAAAAJDFlNjI4ODE3LTQwZjktNGJmYS1iMDExLTExNmQ0OWJjMzYzZg.jpg", "Daniel", "daniel-xsousa/");
+        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAdeAAAAJDFlNjI4ODE3LTQwZjktNGJmYS1iMDExLTExNmQ0OWJjMzYzZg.jpg", "Daniel", "daniel-xsousa");
         //add renato
-        addItem2("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAinAAAAJDA3YWViZjJmLTE0N2ItNDNmMC04N2FlLTk0NWJkNjE4ZjUyNA.jpg", "Renato", "renatoea/");
+        addItem2("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAinAAAAJDA3YWViZjJmLTE0N2ItNDNmMC04N2FlLTk0NWJkNjE4ZjUyNA.jpg", "Renato", "renatoea");
         //add cinthia
         addItem2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Cinthia", "linkc");
 
@@ -76,7 +75,6 @@ public class Sobre extends AppCompatActivity {
 
     private void addItem1(String urls, String nome, String link) {
 
-
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_itens_cards_sobre, cadsimages1, false);
 
         ImageView imagens = (ImageView) cardView.findViewById(R.id.imageView);
@@ -99,7 +97,6 @@ public class Sobre extends AppCompatActivity {
     }
 
     private void addItem2(String urls, String nome, String link) {
-
 
         CardView cardView = (CardView) LayoutInflater.from(this).inflate(R.layout.activity_itens_cards_sobre, cadsimages2, false);
         ImageView imagens = (ImageView) cardView.findViewById(R.id.imageView);
