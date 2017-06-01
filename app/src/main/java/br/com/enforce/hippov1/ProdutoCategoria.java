@@ -2,6 +2,7 @@ package br.com.enforce.hippov1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.util.Log;
@@ -97,10 +98,24 @@ public class ProdutoCategoria extends AppCompatActivity {
         ll_produtos.addView(cardView);
     }
 
+    //  MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mainmenu, menu);
+
+        //  FAB  -   Floating Action Button
+        FloatingActionButton fabqr = (FloatingActionButton) findViewById(R.id.fab_qrcode);
+        fabqr.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(ProdutoCategoria.this, ReadQr.class);
+                startActivity(intent);
+
+            }
+        });
         return true;
     }
 
@@ -122,5 +137,4 @@ public class ProdutoCategoria extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 }

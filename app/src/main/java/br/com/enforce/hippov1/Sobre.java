@@ -3,6 +3,7 @@ package br.com.enforce.hippov1;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -42,35 +43,6 @@ public class Sobre extends AppCompatActivity {
         //add cinthia
         addItem2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Cinthia", "linkc");
 
-    }
-
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.mainmenu, menu);
-        return true;
-    }
-
-
-
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.ophome) {
-            Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.opcar) {
-            Intent intent = new Intent(this, Carrinho.class);
-            startActivity(intent);
-            return true;
-        } else if (id == R.id.opabout) {
-            Intent intent = new Intent(this, Sobre.class);
-            startActivity(intent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     private void addItem1(String urls, String nome, String link) {
@@ -119,4 +91,40 @@ public class Sobre extends AppCompatActivity {
 
     }
 
+    //  MENU
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.mainmenu, menu);
+
+        //  FAB  -   Floating Action Button
+        FloatingActionButton fabqr = (FloatingActionButton) findViewById(R.id.fab_qrcode);
+        fabqr.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Sobre.this, ReadQr.class);
+                startActivity(intent);
+            }
+        });
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.ophome) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opcar) {
+            Intent intent = new Intent(this, Carrinho.class);
+            startActivity(intent);
+            return true;
+        } else if (id == R.id.opabout) {
+            Intent intent = new Intent(this, Sobre.class);
+            startActivity(intent);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 }

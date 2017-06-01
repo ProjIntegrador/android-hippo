@@ -186,28 +186,26 @@ public class Categorias extends AppCompatActivity {
         conteinerRes.addView(cardView);
     }
 
-    //  FAB  -   Floating Action Button
-    FloatingActionButton fabqr = (FloatingActionButton) findViewById(R.id.fab_qrcode);
-//    fabqr.setOnClickListener(new View.OnClickListener() {
-//
-//        @Override
-//        public void onClick(View v) {
-//
-//            Intent intent = new Intent(Categorias.this, ReadQr.class);
-//            startActivity(intent);
-//
-//        }
-//    });
-
     //  MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mainmenu, menu);
+
+        //  FAB  -   Floating Action Button
+        FloatingActionButton fabqr = (FloatingActionButton) findViewById(R.id.fab_qrcode);
+        fabqr.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Categorias.this, ReadQr.class);
+                startActivity(intent);
+
+            }
+        });
         return true;
     }
-
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -227,8 +225,5 @@ public class Categorias extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-
-
 
 }
