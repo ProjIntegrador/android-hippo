@@ -1,6 +1,7 @@
 package br.com.enforce.hippov1;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import com.google.zxing.Result;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
+
+import static android.R.id.message;
 
 public class ReadQr extends AppCompatActivity {
 
@@ -35,6 +38,9 @@ public class ReadQr extends AppCompatActivity {
                 public void handleResult(Result result) {
                     String url = result.getText();
 
+                    Intent intent = new Intent(ReadQr.this, DescricaoProduto.class);
+                    intent.putExtra("idCategoria", url);
+                    startActivity(intent);
 
                 }
 
