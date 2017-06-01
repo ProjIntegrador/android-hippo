@@ -35,11 +35,11 @@ public class Sobre extends AppCompatActivity {
         cadsimages1 = (ViewGroup) findViewById(R.id.container1);
         cadsimages2 = (ViewGroup) findViewById(R.id.conteiner2);
         //add henrique
-        addItem1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Henrique", "henrique-prieto-rigio-02253a123/");
+        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAArcAAAAJDhlMTc5MmExLWZjYjItNDY1Ny05NDBkLWM4Y2RlOTU1YWViZQ.jpg", "Henrique", "hprigio/");
         //add daniel
-        addItem1("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Daniel", "linkd");
+        addItem1("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAdeAAAAJDFlNjI4ODE3LTQwZjktNGJmYS1iMDExLTExNmQ0OWJjMzYzZg.jpg", "Daniel", "daniel-xsousa/");
         //add renato
-        addItem2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Renato", "linkr");
+        addItem2("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAinAAAAJDA3YWViZjJmLTE0N2ItNDNmMC04N2FlLTk0NWJkNjE4ZjUyNA.jpg", "Renato", "renatoea/");
         //add cinthia
         addItem2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Cinthia", "linkc");
 
