@@ -3,6 +3,7 @@ package br.com.enforce.hippov1;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -26,26 +27,34 @@ public class ReadQr extends AppCompatActivity {
         mScannerView = new ZXingScannerView(this);   // Programmatically initialize the scanner view
         setContentView(mScannerView);                // Set the scanner view as the content view
 
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 1);
+        }
     }
-    }
+
     @Override
     public void onResume() {
         super.onResume();
         mScannerView.setResultHandler(new ZXingScannerView.ResultHandler() {
-                @Override
-                public void handleResult(Result result) {
-                    String url = result.getText();
+            @Override
+            public void handleResult(Result result) {
 
-                    Intent intent = new Intent(ReadQr.this, DescricaoProduto.class);
-                    intent.putExtra("idCategoria", url);
-                    startActivity(intent);
+                //  leitura do QR transferindo como STRING
+                String url = result.getText();
 
-                }
+                //  Obtem o parâmetro da URL obtida
+                Uri uri = Uri.parse(url);
+                String value = uri.getQueryParameter("idProduto");
+
+                //  Passa para a activity que chamará o CALL para o Webservice
+                Intent intent = new Intent(ReadQr.this, DescricaoProduto.class);
+                intent.putExtra("idProduto", value);
+                startActivity(intent);
+
+            }
 
 
-            });
+        });
         mScannerView.startCamera();
 
     }
@@ -55,6 +64,7 @@ public class ReadQr extends AppCompatActivity {
         super.onPause();
         mScannerView.stopCamera();
     }
+
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         if (requestCode == 1) {
             if (grantResults.length > 0 && grantResults[0] ==
@@ -68,4 +78,3 @@ public class ReadQr extends AppCompatActivity {
     }
 
 }
-

@@ -62,14 +62,16 @@ public class DescricaoProduto extends AppCompatActivity {
                 preco.setText(prod.getPrecProduto().toString());
                 descproduto.setText(prod.getDescProduto());
 
+                //  Solucao para o SPINNER obtendo o limite de itens do estoque
                 Integer[] intArray = new Integer[prod.getQtdMinEstoque()];
                 for(int i = 0; i < prod.getQtdMinEstoque(); i++) {
                     intArray[i] = i;
                 }
-
                 ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(DescricaoProduto.this,android.R.layout.simple_spinner_dropdown_item, intArray);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 quantidade.setAdapter(adapter);
+
+
 
 
                 /*  IMAGEM RENDER (tentativa)

@@ -3,6 +3,7 @@ package br.com.enforce.hippov1;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
@@ -71,6 +72,7 @@ public class Categorias extends AppCompatActivity {
 
                 } else {
                     Log.e("Nome Categoria: ", "aaaaa");
+
                 }
             }
 
@@ -183,6 +185,19 @@ public class Categorias extends AppCompatActivity {
 
         conteinerRes.addView(cardView);
     }
+
+    //  FAB  -   Floating Action Button
+    FloatingActionButton fabqr = (FloatingActionButton) findViewById(R.id.fab_qrcode);
+//    fabqr.setOnClickListener(new View.OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//
+//            Intent intent = new Intent(Categorias.this, ReadQr.class);
+//            startActivity(intent);
+//
+//        }
+//    });
 
     //  MENU
     @Override

@@ -64,5 +64,6 @@
     <string name="choose_any_category">Selecione uma categoria para comprar produtos</string>
     <!--    SOBRE / ABOUT  -->
     <string name="title_activity_about">Grupo Enforce</string>
+    <string name="lbl_info_carrinho">Produtos atualmente no carrinho:</string>
 
 </resources>
