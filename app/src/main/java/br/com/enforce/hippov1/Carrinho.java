@@ -34,8 +34,14 @@ public class Carrinho extends AppCompatActivity {
         final TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.tela_carrinho_table_row, null);
 
         TextView tv;
+//        tv = (TextView) tr.findViewById(R.id.);
+//        tv.setText(item.getIdProduto().toString());
+
         tv = (TextView) tr.findViewById(R.id.nomeProduto);
-        tv.setText(item.getIdProduto().toString());
+        tv.setText(item.getNomeProduto());
+
+        tv = (TextView) tr.findViewById(R.id.qtdProduto);
+        tv.setText(item.getQtdProduto().toString());
 
         tv = (TextView) tr.findViewById(R.id.precProduto);
         tv.setText(item.getPrecoVendaItem().toString());

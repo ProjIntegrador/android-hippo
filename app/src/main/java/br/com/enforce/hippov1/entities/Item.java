@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 public class Item implements Serializable {
 
 	private Long idProduto;
+	private String nomeProduto;
 	private Integer qtdProduto;
 	private BigDecimal precoVendaItem;
 
@@ -23,6 +24,14 @@ public class Item implements Serializable {
 
 	public void setIdProduto(Long idProduto) {
 		this.idProduto = idProduto;
+	}
+
+	public String getNomeProduto() {
+		return nomeProduto;
+	}
+
+	public void setNomeProduto(String nomeProduto) {
+		this.nomeProduto = nomeProduto;
 	}
 
 	public Integer getQtdProduto() {

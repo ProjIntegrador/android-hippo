@@ -91,7 +91,6 @@ public class DescricaoProduto extends AppCompatActivity {
                 //  FIM Bloco IMAGEM
                 */
 
-
             }
             @Override
             public void onFailure(Call<ProdutoRest> call, Throwable t) {
@@ -100,7 +99,6 @@ public class DescricaoProduto extends AppCompatActivity {
             }
 
         });
-
 
     }
 
@@ -111,6 +109,7 @@ public class DescricaoProduto extends AppCompatActivity {
 
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
+        item.setNomeProduto(nomeproduto.getText().toString());
         item.setQtdProduto((Integer) quantidade.getSelectedItem());
         item.setPrecoVendaItem(new BigDecimal(preco.getText().toString()));
 

@@ -65,5 +65,7 @@
     <!--    SOBRE / ABOUT  -->
     <string name="title_activity_about">Grupo Enforce</string>
     <string name="lbl_info_carrinho">Produtos atualmente no carrinho:</string>
+    <string name="lbl_btn_concluir">Concluir Compra</string>
+    <string name="lbl_btn_comprarmais">Continuar Comprando</string>
 
 </resources>

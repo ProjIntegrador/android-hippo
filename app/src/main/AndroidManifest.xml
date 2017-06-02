@@ -72,7 +72,8 @@
             android:configChanges="orientation"
             android:label="@string/title_activity_about"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
 
     </application>
 
