@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,7 +30,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class Pagamento extends Activity {
+public class Pagamento extends AppCompatActivity {
 
     private Spinner spinner;
     private Button enviar;
@@ -152,14 +153,13 @@ public class Pagamento extends Activity {
 
     }
 
+    //  MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mainmenu, menu);
         return true;
     }
-
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();

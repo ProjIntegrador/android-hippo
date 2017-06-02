@@ -42,10 +42,8 @@ public class Login extends AppCompatActivity {
 
 
         buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
-
         buttonEnviar.setOnClickListener(new Button.OnClickListener() {
             public void onClick(View v) {
-
 
                 //  INICIA COMUNICAÇÃO COM O WS de Login
                 HippoServices service = new RetrofitInitializer(getApplicationContext()).getHippoServices();
@@ -55,7 +53,7 @@ public class Login extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Void> call, Response<Void> response) {
                         if (response.isSuccessful()) {
-                            Log.i("retorno", "raw : "+response.raw().body());
+                            Log.i("retorno", "raw : " + response.raw().body());
 //                            ClienteLoginRest cliente = response.body();
 //                            Log.i("retorno", "id : "+cliente.getIdCliente());
                             Intent intent = new Intent(Login.this, Pagamento.class);
@@ -72,24 +70,20 @@ public class Login extends AppCompatActivity {
                         finish();
                     }
 
-
-
                 });
 
             }
         });
 
-
     }
 
+    //  MENU
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.mainmenu, menu);
         return true;
     }
-
-
 
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -109,5 +103,6 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 }
