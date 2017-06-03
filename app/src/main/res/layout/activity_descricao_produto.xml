@@ -48,50 +48,58 @@
             android:id="@+id/lbl_precProduto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:text="Preço"
             android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="23dp"
+            android:text="Preço"
+            android:textSize="15sp"
             android:textStyle="normal|bold" />
 
         <TextView
             android:id="@+id/precProduto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_toEndOf="@+id/lbl_precProduto"
-            android:text="$$$$"
-            android:layout_alignParentStart="true"
-            android:paddingLeft="15dp" />
+            android:layout_alignTop="@+id/lbl_precProduto"
+            android:text="0"
+            android:textSize="18sp"
+            android:layout_alignStart="@+id/descontoPromocao" />
 
         <TextView
             android:id="@+id/lbl_descontoPromocao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:text="Promoção"
             android:layout_alignParentStart="true"
-            android:textStyle="normal|bold" />
+            android:layout_centerVertical="true"
+            android:text="Promoção"
+            android:textColor="@color/colorDefaultRED"
+            android:textSize="15sp"
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/descontoPromocao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="$$$$$"
-            android:layout_toEndOf="@+id/lbl_descontoPromocao"
-            android:layout_marginTop="85dp"
-            android:layout_alignParentTop="true"
+            android:layout_alignBaseline="@+id/lbl_descontoPromocao"
+            android:layout_alignBottom="@+id/lbl_descontoPromocao"
             android:layout_alignParentStart="true"
-            android:paddingLeft="15dp" />
+            android:layout_marginStart="102dp"
+            android:text="0"
+            android:textColor="@color/colorDefaultRED"
+            android:textColorLink="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/lbl_quantidade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="120dp"
             android:layout_toEndOf="@+id/descontoPromocao"
             android:text="Quantidade "
-            android:layout_marginTop="115dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true"
             android:textStyle="normal|bold" />
 
         <Spinner
@@ -99,7 +107,9 @@
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_alignBottom="@+id/lbl_quantidade"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="120dp"
+            android:dropDownWidth="match_parent" />
 
     </RelativeLayout>
 
@@ -119,11 +129,12 @@
             android:id="@+id/descProduto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Descrição"
-            android:textSize="15sp"
-            android:layout_marginEnd="10dp"
+            android:layout_alignStart="@+id/imagem"
             android:layout_below="@+id/infoSection"
-            android:layout_alignStart="@+id/imagem" />
+            android:layout_marginEnd="10dp"
+            android:paddingLeft="5dp"
+            android:text="Descrição"
+            android:textSize="15sp" />
 
 
     </LinearLayout>

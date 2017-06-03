@@ -35,6 +35,8 @@ public class DescricaoProduto extends AppCompatActivity {
     private Spinner quantidade;
     private TextView descproduto;
     private int idProduto;
+    private boolean flag;
+    private BigDecimal promo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,9 +60,27 @@ public class DescricaoProduto extends AppCompatActivity {
             public void onResponse(Call<ProdutoRest> call, Response<ProdutoRest> response) {
                 Log.i("retorno", response.body().toString());
                 ProdutoRest prod = response.body();
+
                 nomeproduto.setText(prod.getNomeProduto());
-                preco.setText(prod.getPrecProduto().toString());
                 descproduto.setText(prod.getDescProduto());
+                BigDecimal price = prod.getPrecProduto();
+                BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
+
+                if (prod.getDescontoPromocao() == 0) {
+                    preco.setText(prod.getPrecProduto().toString());
+                    flag = false;
+                } else {
+                    promocao.setText(desconto.toString());
+                    promocao.setVisibility(View.VISIBLE);
+                    TextView labelPreco = (TextView) findViewById(R.id.lbl_precProduto);
+                    labelPreco.setText("DE:                 R$ ");
+                    TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
+                    labelDescPromo.setVisibility(View.VISIBLE);
+                    labelDescPromo.setText("POR:              R$ ");
+                    preco.setText(price.toString());
+                    promo = price;
+                    flag = true;
+                }
 
                 //  Solucao para o SPINNER obtendo o limite de itens do estoque
                 Integer[] intArray = new Integer[prod.getQtdMinEstoque()];
@@ -69,8 +89,9 @@ public class DescricaoProduto extends AppCompatActivity {
                 }
                 ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(DescricaoProduto.this,android.R.layout.simple_spinner_dropdown_item, intArray);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                adapter.notifyDataSetChanged();
+                quantidade.setSelection(0,false);
                 quantidade.setAdapter(adapter);
-
 
 
 
@@ -110,8 +131,14 @@ public class DescricaoProduto extends AppCompatActivity {
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
         item.setNomeProduto(nomeproduto.getText().toString());
+
         item.setQtdProduto((Integer) quantidade.getSelectedItem());
-        item.setPrecoVendaItem(new BigDecimal(preco.getText().toString()));
+
+        if (flag != false){
+            item.setPrecoVendaItem(new BigDecimal(String.valueOf(promo)));
+        } else {
+            item.setPrecoVendaItem(new BigDecimal(preco.getText().toString()));
+        }
 
         SingletonHippo.Instance().addItem(item);
 
