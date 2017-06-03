@@ -41,7 +41,7 @@ public class Sobre extends AppCompatActivity {
         //add renato
         addItem2("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAinAAAAJDA3YWViZjJmLTE0N2ItNDNmMC04N2FlLTk0NWJkNjE4ZjUyNA.jpg", "Renato", "renatoea");
         //add cinthia
-        addItem2("https://s-media-cache-ak0.pinimg.com/originals/80/6d/3b/806d3bffaaa73470dd38b5eaccd47f23.png", "Cinthia", "linkc");
+        addItem2("https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAA2OAAAAJGU4ODU4YjBlLWVkN2MtNDU5Ni05ZjYyLTY3OGM4MDViNjM1OQ.jpg", "Cinthia", "cinthia-inhaia-388060142");
 
     }
 
