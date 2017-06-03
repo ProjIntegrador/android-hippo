@@ -36,7 +36,7 @@ public class DescricaoProduto extends AppCompatActivity {
     private TextView descproduto;
     private int idProduto;
     private boolean flag;
-    private BigDecimal promo;
+    private double promo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class DescricaoProduto extends AppCompatActivity {
                     labelDescPromo.setVisibility(View.VISIBLE);
                     labelDescPromo.setText("POR:       R$ ");
                     preco.setText(price.toString());
-                    promo = price;
+                    promo = prod.getDescontoPromocao();
                     flag = true;
                 }
 
