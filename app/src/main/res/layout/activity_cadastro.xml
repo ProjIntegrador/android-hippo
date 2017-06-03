@@ -37,7 +37,33 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_nome"
+                    android:text="Cliente"
                     android:inputType="textPersonName" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_cpfCliente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CPF"
+                    android:textColor="@android:color/black" />
+
+
+                <EditText
+                    android:id="@+id/cpfCliente"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="000.000.000-0"
+                    android:inputType="date"
+                    android:text="123.456.789-0" />
+
+
             </LinearLayout>
 
             <LinearLayout
@@ -57,6 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_email"
+                    android:text="email@cliente.com.br"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -78,7 +105,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_senha"
-                    android:inputType="textPersonName" />
+                    android:text="senha"
+                    android:inputType="textPassword"/>
             </LinearLayout>
 
 
@@ -99,7 +127,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_csenha"
-                    android:inputType="textPersonName" />
+                    android:text="senha"
+                    android:inputType="textPassword" />
             </LinearLayout>
 
             <LinearLayout
@@ -119,31 +148,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_celular"
+                    android:text="01 2345-6789"
                     android:inputType="textPersonName" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/tv_data_nascimento"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/tvdata_nacimento"
-                    android:textColor="@android:color/black" />
-
-
-                <EditText
-                    android:id="@+id/dtNascCliente"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:hint="@string/hint_data_nacimento"
-                    android:inputType="date" />
-
-
             </LinearLayout>
 
             <LinearLayout
