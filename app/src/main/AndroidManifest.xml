@@ -48,7 +48,7 @@
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".rest.Cadastro"
+            android:name=".Cadastro"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
         <activity
