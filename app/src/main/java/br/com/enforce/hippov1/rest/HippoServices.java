@@ -39,7 +39,7 @@ public interface HippoServices {
     @GET("/webservices/cliente/")
     Call<ClienteLoginRest> clienteAutenticado();
 
-    @POST("/webservices/cliente/")
+    @POST("/webservices/cliente")
     Call<ClienteLoginRest> criarUsuario(@Body ClienteLoginRest cliente);
 
     @POST("/webservices/pedido")

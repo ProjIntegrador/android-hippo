@@ -1,15 +1,13 @@
 package br.com.enforce.hippov1.rest;
 
 
-import java.util.Date;
-
 public class ClienteLoginRest {
 
     private Long idCliente;
     private String nomeCompletoCliente;
     private String emailCliente;
     private String senhaCliente;
-    private String CPFCliente;
+    private String cpfcliente;
     private String celularCliente;
     private String telComercialCliente;
     private String telResidencialCliente;
@@ -48,12 +46,12 @@ public class ClienteLoginRest {
         this.senhaCliente = senhaCliente;
     }
 
-    public String getCPFCliente() {
-        return CPFCliente;
+    public String getCpfcliente() {
+        return cpfcliente;
     }
 
-    public void setCPFCliente(String CPFCliente) {
-        this.CPFCliente = CPFCliente;
+    public void setCpfcliente(String cpfcliente) {
+        this.cpfcliente = cpfcliente;
     }
 
     public String getCelularCliente() {
