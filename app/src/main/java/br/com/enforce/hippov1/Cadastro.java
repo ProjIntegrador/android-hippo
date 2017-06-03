@@ -1,4 +1,4 @@
-package br.com.enforce.hippov1.rest;
+package br.com.enforce.hippov1;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

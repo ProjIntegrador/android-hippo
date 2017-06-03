@@ -31,7 +31,7 @@ public class DescricaoProduto extends AppCompatActivity {
     private TextView nomeproduto;
     private ImageView imagem;
     private TextView preco;
-    public TextView promocao;
+    private TextView promocao;
     private Spinner quantidade;
     private TextView descproduto;
     private int idProduto;
@@ -53,9 +53,6 @@ public class DescricaoProduto extends AppCompatActivity {
         promocao = (TextView) findViewById(R.id.descontoPromocao);
         quantidade = (Spinner) findViewById(R.id.spin_qtd);
         descproduto = (TextView) findViewById(R.id.descProduto);
-        descproduto = (TextView) findViewById(R.id.descProduto);
-
-
 
         HippoServices service = new RetrofitInitializer().getHippoServices();
         Call<ProdutoRest> retorno = service.obtemDetalheProduto(idProduto);

@@ -10,17 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import br.com.enforce.hippov1.rest.AddCookiesInterceptor;
 import br.com.enforce.hippov1.rest.HippoServices;
-import br.com.enforce.hippov1.rest.ClienteLoginRest;
-import br.com.enforce.hippov1.rest.ReceivedCookiesInterceptor;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
-import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class Login extends AppCompatActivity {
 
@@ -39,6 +33,13 @@ public class Login extends AppCompatActivity {
         senhaCliente = (EditText) findViewById(R.id.senhaCliente);
 
         buttonNvCadastro = (Button) findViewById(R.id.buttonNvCadastro);
+        buttonNvCadastro.setOnClickListener(new Button.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Cadastro.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         buttonEnviar = (Button) findViewById(R.id.buttonEnviar);
@@ -103,6 +104,5 @@ public class Login extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

@@ -36,7 +36,7 @@ public class ProdutoCategoria extends AppCompatActivity {
         Intent intent = getIntent();
         int idCategoria = Integer.parseInt(intent.getStringExtra("idCategoria"));
 
-        if(idCategoria > 0 ){
+        if (idCategoria > 0) {
 
             Call call = (Call) new RetrofitInitializer().getHippoServices().obtemProdutosPorCategoria(idCategoria);
             call.enqueue(new Callback<List<ProdutoRest>>() {
@@ -46,11 +46,11 @@ public class ProdutoCategoria extends AppCompatActivity {
                     if (response.isSuccessful()) {
                         List<ProdutoRest> productCategoria = response.body();
 
-                        if (productCategoria.size() > 0){
+                        if (productCategoria.size() > 0) {
                             Log.e("Nome produto: ", "produtos : " + productCategoria.size());
 
-                            for (ProdutoRest produto : productCategoria){
-                                Log.e("produtos: ", produto.getIdProduto()+" : " + produto.getNomeProduto());
+                            for (ProdutoRest produto : productCategoria) {
+                                Log.e("produtos: ", produto.getIdProduto() + " : " + produto.getNomeProduto());
                                 addProd1(produto);
                             }
 
@@ -77,13 +77,13 @@ public class ProdutoCategoria extends AppCompatActivity {
 
                 @Override
                 public void onFailure(Call<List<ProdutoRest>> call, Throwable t) {
-                    Log.e( "falha: " , t.getMessage() );
+                    Log.e("falha: ", t.getMessage());
                 }
 
             });
 
         } else {
-            Log.e( "falha: " , "Nenhuma categoria retornada" ); //TODO tratar
+            Log.e("falha: ", "Nenhuma categoria retornada"); //TODO tratar
         }
 
         /*  EM CASO DE FALHA NA CHAMADA */
@@ -96,17 +96,20 @@ public class ProdutoCategoria extends AppCompatActivity {
 
         TextView idcategoria = (TextView) cardView.findViewById(R.id.id_produto);
         TextView tituloCategoria = (TextView) cardView.findViewById(R.id.nome_produto);
+        TextView precoProdutoCat = (TextView) cardView.findViewById(R.id.preco_produto_cat);
 
-        tituloCategoria.setText(produto.getNomeProduto());
+        String precoprodcat = produto.getPrecProduto().toString();
         idcategoria.setText(produto.getIdProduto().toString());
+        tituloCategoria.setText(produto.getNomeProduto());
+        precoProdutoCat.setText("R$   " + precoprodcat);
 
         //  Na criação do CARDVIEW, definir o Listener do ONCLICK
         cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String id = ((TextView)v.findViewById(R.id.id_produto)).getText().toString();
+                String id = ((TextView) v.findViewById(R.id.id_produto)).getText().toString();
                 Intent intent = new Intent(ProdutoCategoria.this, DescricaoProduto.class);
-                intent.putExtra( "idProduto", id);
+                intent.putExtra("idProduto", id);
                 startActivity(intent);
             }
         });
