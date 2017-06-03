@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -54,6 +55,20 @@ public class ProdutoCategoria extends AppCompatActivity {
                             }
 
                             Log.e("produtos: ", "produtos carregados com sucesso");
+                        } else {
+                            TextView infoNoProducts = (TextView) findViewById(R.id.tv_noproducts);
+                            Button btnVoltaCategoria = (Button) findViewById(R.id.btn_returncategorias);
+                            infoNoProducts.setVisibility(View.VISIBLE);
+                            btnVoltaCategoria.setVisibility(View.VISIBLE);
+
+                            btnVoltaCategoria.setOnClickListener(new Button.OnClickListener() {
+                                public void onClick(View v) {
+
+                                    Intent intent = new Intent(ProdutoCategoria.this, Categorias.class);
+                                    startActivity(intent);
+
+                                }
+                            });
                         }
 
                     }
@@ -67,10 +82,11 @@ public class ProdutoCategoria extends AppCompatActivity {
 
             });
 
-        }else {
+        } else {
             Log.e( "falha: " , "Nenhuma categoria retornada" ); //TODO tratar
         }
-/**/
+
+        /*  EM CASO DE FALHA NA CHAMADA */
         Log.e("produtos: ", "produtos deveriam ter sido carregados");
 
     }

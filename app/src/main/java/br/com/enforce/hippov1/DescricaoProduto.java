@@ -76,7 +76,7 @@ public class DescricaoProduto extends AppCompatActivity {
                     labelPreco.setText("DE:                 R$ ");
                     TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
                     labelDescPromo.setVisibility(View.VISIBLE);
-                    labelDescPromo.setText("POR:              R$ ");
+                    labelDescPromo.setText("POR:       R$ ");
                     preco.setText(price.toString());
                     promo = price;
                     flag = true;

@@ -57,12 +57,15 @@
 
         <TextView
             android:id="@+id/precProduto"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/lbl_precProduto"
-            android:text="0"
-            android:textSize="18sp"
-            android:layout_alignStart="@+id/descontoPromocao" />
+            android:layout_alignBaseline="@+id/lbl_precProduto"
+            android:layout_alignBottom="@+id/lbl_precProduto"
+            android:layout_marginTop="23dp"
+            android:layout_marginLeft="100dp"
+            android:text="0,00"
+            android:textSize="24sp"
+            android:layout_centerVertical="true" />
 
         <TextView
             android:id="@+id/lbl_descontoPromocao"
@@ -72,22 +75,21 @@
             android:layout_centerVertical="true"
             android:text="Promoção"
             android:textColor="@color/colorDefaultRED"
-            android:textSize="15sp"
+            android:textSize="20sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
             android:id="@+id/descontoPromocao"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/lbl_descontoPromocao"
             android:layout_alignBottom="@+id/lbl_descontoPromocao"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="102dp"
-            android:text="0"
+            android:layout_marginLeft="100dp"
+            android:text="0,00"
             android:textColor="@color/colorDefaultRED"
             android:textColorLink="@color/colorPrimaryDark"
-            android:textSize="18sp"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:visibility="gone" />
 
@@ -99,7 +101,7 @@
             android:layout_alignParentTop="true"
             android:layout_marginTop="120dp"
             android:layout_toEndOf="@+id/descontoPromocao"
-            android:text="Quantidade "
+            android:text="Quantidade"
             android:textStyle="normal|bold" />
 
         <Spinner

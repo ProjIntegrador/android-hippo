@@ -67,5 +67,6 @@
     <string name="lbl_info_carrinho">Produtos atualmente no carrinho:</string>
     <string name="lbl_btn_concluir">Concluir Compra</string>
     <string name="lbl_btn_comprarmais">Continuar Comprando</string>
+    <string name="lbl_noproducts">Não há nenhum produto nessa categoria. Retorne à tela Anterior e escolha outra categoria.</string>
 
 </resources>
