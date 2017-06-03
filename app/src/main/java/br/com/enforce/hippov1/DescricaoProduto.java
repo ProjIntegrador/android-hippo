@@ -31,12 +31,13 @@ public class DescricaoProduto extends AppCompatActivity {
     private TextView nomeproduto;
     private ImageView imagem;
     private TextView preco;
-    private TextView promocao;
+    public TextView promocao;
     private Spinner quantidade;
     private TextView descproduto;
     private int idProduto;
     private boolean flag;
     private BigDecimal promo;
+    private BigDecimal desconto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +53,9 @@ public class DescricaoProduto extends AppCompatActivity {
         promocao = (TextView) findViewById(R.id.descontoPromocao);
         quantidade = (Spinner) findViewById(R.id.spin_qtd);
         descproduto = (TextView) findViewById(R.id.descProduto);
+        descproduto = (TextView) findViewById(R.id.descProduto);
+
+
 
         HippoServices service = new RetrofitInitializer().getHippoServices();
         Call<ProdutoRest> retorno = service.obtemDetalheProduto(idProduto);
@@ -64,7 +68,7 @@ public class DescricaoProduto extends AppCompatActivity {
                 nomeproduto.setText(prod.getNomeProduto());
                 descproduto.setText(prod.getDescProduto());
                 BigDecimal price = prod.getPrecProduto();
-                BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
+                desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
                     preco.setText(prod.getPrecProduto().toString());
@@ -73,10 +77,10 @@ public class DescricaoProduto extends AppCompatActivity {
                     promocao.setText(desconto.toString());
                     promocao.setVisibility(View.VISIBLE);
                     TextView labelPreco = (TextView) findViewById(R.id.lbl_precProduto);
-                    labelPreco.setText("DE:                 R$ ");
+                    labelPreco.setText("DE:                 R$  ");
                     TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
                     labelDescPromo.setVisibility(View.VISIBLE);
-                    labelDescPromo.setText("POR:       R$ ");
+                    labelDescPromo.setText("POR:       R$  ");
                     preco.setText(price.toString());
                     promo = price;
                     flag = true;
@@ -143,6 +147,7 @@ public class DescricaoProduto extends AppCompatActivity {
         SingletonHippo.Instance().addItem(item);
 
         Intent intent = new Intent(DescricaoProduto.this, Carrinho.class);
+        intent.putExtra("desconto", desconto);
         startActivity(intent);
     }
 

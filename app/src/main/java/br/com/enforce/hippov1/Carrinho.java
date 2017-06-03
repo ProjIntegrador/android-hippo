@@ -17,7 +17,7 @@ import br.com.enforce.hippov1.entities.Item;
 import br.com.enforce.hippov1.tempdata.SingletonHippo;
 
 public class Carrinho extends AppCompatActivity {
-
+        private  String desconto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,14 +37,33 @@ public class Carrinho extends AppCompatActivity {
 //        tv = (TextView) tr.findViewById(R.id.);
 //        tv.setText(item.getIdProduto().toString());
 
+
+        Bundle extras = getIntent().getExtras();
+
+            BigDecimal decimal = (BigDecimal) extras.get("desconto");
+            desconto = decimal.toPlainString();
+
+
+
         tv = (TextView) tr.findViewById(R.id.nomeProduto);
         tv.setText(item.getNomeProduto());
 
         tv = (TextView) tr.findViewById(R.id.qtdProduto);
-        tv.setText(item.getQtdProduto().toString());
+        if((item.getQtdProduto())!= 0){
+            tv.setText(item.getQtdProduto().toString());
 
-        tv = (TextView) tr.findViewById(R.id.precProduto);
-        tv.setText(item.getPrecoVendaItem().toString());
+            tv = (TextView) tr.findViewById(R.id.precProduto);
+            Double valor = Double.parseDouble(desconto) *  item.getQtdProduto();
+            tv.setText(String.valueOf(valor));
+        }
+        else{
+            tv.setText("1");
+
+            tv = (TextView) tr.findViewById(R.id.precProduto);
+            tv.setText(desconto);
+        }
+
+
 
         table.addView(tr);
     }

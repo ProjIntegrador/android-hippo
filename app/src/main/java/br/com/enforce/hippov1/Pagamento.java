@@ -62,6 +62,7 @@ public class Pagamento extends AppCompatActivity {
                 } else {
                     Log.i("return_error", response.body().toString());
                 }
+
             }
 
             @Override
