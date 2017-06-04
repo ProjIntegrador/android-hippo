@@ -41,7 +41,7 @@ public class ProdutoCategoria extends AppCompatActivity {
         ll_produtos = (LinearLayout) findViewById(R.id.ll_produtos);
 
         Intent intent = getIntent();
-        int idCategoria = Integer.parseInt(intent.getStringExtra("idCategoria"));
+        final int idCategoria = Integer.parseInt(intent.getStringExtra("idCategoria"));
 
         if (idCategoria > 0) {
 
@@ -61,7 +61,7 @@ public class ProdutoCategoria extends AppCompatActivity {
                                 addProd1(produto);
                             }
 
-                            Log.e("produtos: ", "produtos carregados com sucesso");
+                            Log.e("produtos: ", "produtos carregados com sucesso da Categoria com id = " + idCategoria);
                         } else {
                             TextView infoNoProducts = (TextView) findViewById(R.id.tv_noproducts);
                             Button btnVoltaCategoria = (Button) findViewById(R.id.btn_returncategorias);
@@ -126,18 +126,19 @@ public class ProdutoCategoria extends AppCompatActivity {
         String precoprodcat = produto.getPrecProduto().toString();
         precoProdutoCat.setText("R$   " + precoprodcat);
 
-        //      IMAGEM
+        //  IMAGEM
         String imgStringBase64 = produto.getImagem();
-        //      CONDIÇÃO para impedir erro de NULL POINTER EXCEPTION quando vier uma Imagem NULL do BANCO / WS.
-        if (imgStringBase64 != null) {
-            byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
-            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-            imagProduto.setImageBitmap(decodedByte);
-        } else {
+        //  CONDIÇÃO para impedir erro de NULL POINTER EXCEPTION quando vier uma Imagem NULL do BANCO / WS.
+        if (imgStringBase64 == null || imgStringBase64 == "") {
             Drawable myDrawable = getResources().getDrawable(R.drawable.no_image);
             Bitmap noImg = ((BitmapDrawable) myDrawable).getBitmap();
             imagProduto.setImageBitmap(noImg);
+        } else {
+            byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            imagProduto.setImageBitmap(decodedByte);
         }
+        //  FIM IMAGEM
 
         //  Na criação do CARDVIEW, definir o Listener do ONCLICK
         cardView.setOnClickListener(new View.OnClickListener() {

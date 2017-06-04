@@ -103,16 +103,15 @@ public class DescricaoProduto extends AppCompatActivity {
 
                 //  IMAGEM
                 String imgStringBase64 = prod.getImagem();
-
                 //  CONDIÇÃO para impedir erro de NULL POINTER EXCEPTION quando vier uma Imagem NULL do BANCO / WS.
-                if (imgStringBase64 != null) {
-                    byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
-                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-                    imagem.setImageBitmap(decodedByte);
-                } else {
+                if (imgStringBase64 == null || imgStringBase64 == "") {
                     Drawable myDrawable = getResources().getDrawable(R.drawable.no_image);
                     Bitmap noImg = ((BitmapDrawable) myDrawable).getBitmap();
                     imagem.setImageBitmap(noImg);
+                } else {
+                    byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imagem.setImageBitmap(decodedByte);
                 }
                 //  FIM IMAGEM
             }
