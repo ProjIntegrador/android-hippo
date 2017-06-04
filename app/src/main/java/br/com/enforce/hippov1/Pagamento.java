@@ -53,12 +53,12 @@ public class Pagamento extends AppCompatActivity {
                 }
 
                 if (response.isSuccessful()) {
-                    Log.i("retorno", "raw : "+response.raw().body());
+                    Log.i("retorno", "raw : " + response.raw().body());
 
                     ClienteLoginRest cliente = response.body();
                     SingletonHippo.Instance().setCliente(cliente);
 
-                    Log.i("retorno", "id : "+cliente.getIdCliente());
+                    Log.i("retorno", "id : " + cliente.getIdCliente());
                 } else {
                     Log.i("return_error", response.body().toString());
                 }
@@ -74,11 +74,11 @@ public class Pagamento extends AppCompatActivity {
         });
 
         setContentView(R.layout.activity_pagamento);
-        spinner = (Spinner)findViewById(R.id.spinner_pag);
+        spinner = (Spinner) findViewById(R.id.spinner_pag);
 
         spinner.setAdapter(new ArrayAdapter<TipoPagto>(this, android.R.layout.simple_list_item_1, TipoPagto.values()));
 
-        enviar=(Button)findViewById(R.id.enviar_dados_pag);
+        enviar = (Button) findViewById(R.id.enviar_dados_pag);
         enviar.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
@@ -100,7 +100,7 @@ public class Pagamento extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Pedido> call, Response<Pedido> response) {
                         if (response.isSuccessful()) {
-                            Log.i("retorno", "raw : "+response.raw().body());
+                            Log.i("retorno", "raw : " + response.raw().body());
 
                         } else {
                             Log.i("return_error", response.body().toString());
@@ -115,9 +115,9 @@ public class Pagamento extends AppCompatActivity {
 
                 });
 
-//                Toast.makeText(Pagamento.this, "Dados Enviados Com Sucesso ,Retornando a Compra " , Toast.LENGTH_LONG).show();
-//                Intent i = new Intent(Pagamento.this, MainActivity.class);
-//                startActivity(i);
+                Toast.makeText(Pagamento.this, "Seu pedido foi enviado. Retornando à Loja", Toast.LENGTH_LONG).show();
+                Intent i = new Intent(Pagamento.this, MainActivity.class);
+                startActivity(i);
             }
         });
 
@@ -128,7 +128,7 @@ public class Pagamento extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
                 //pega nome pela posição
                 TipoPagto tipoPagto = (TipoPagto) parent.getItemAtPosition(posicao);
-                if(tipoPagto == TipoPagto.CartaoDeCredito){
+                if (tipoPagto == TipoPagto.CartaoDeCredito) {
 
                     Fragment fragment;
                     fragment = new Cartao_op();
@@ -136,7 +136,7 @@ public class Pagamento extends AppCompatActivity {
                             .replace(R.id.pagamento_pager, fragment).commit();
 
 
-                }else{
+                } else {
                     Fragment fragment;
                     fragment = new Boleto_op();
                     getFragmentManager().beginTransaction()
