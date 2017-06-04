@@ -52,6 +52,9 @@
         android:id="@+id/apagar"
         android:layout_width="35dp"
         android:layout_height="match_parent"
-        app:srcCompat="@android:drawable/ic_delete" />
+        android:clickable="true"
+        android:onClick="removeItem"
+        app:srcCompat="@android:drawable/ic_delete"
+        />
 
 </TableRow>

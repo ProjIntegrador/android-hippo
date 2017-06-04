@@ -27,18 +27,29 @@
             style="?android:textAppearanceLarge"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-        />
+            android:paddingBottom="3dp"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/img_produto_cat"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            app:srcCompat="@drawable/no_image" />
 
         <TextView
             android:id="@+id/preco_produto_cat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_toEndOf="@+id/nome_produto"
+            android:paddingBottom="5sp"
+            android:paddingTop="5sp"
             android:text="00,00"
             android:textAlignment="center"
             android:textSize="16sp"
             android:textStyle="bold" />
+
+
 
     </LinearLayout>
 

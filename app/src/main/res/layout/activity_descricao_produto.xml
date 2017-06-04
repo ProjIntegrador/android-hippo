@@ -25,24 +25,26 @@
         android:id="@+id/imagem"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginRight="10dp"
-        android:src="@drawable/ic_no_image"
-        android:contentDescription="Imagem do Produto"
-        android:layout_marginTop="13dp"
-        android:layout_below="@+id/nomeProduto"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="14dp" />
+        android:layout_below="@+id/nomeProduto"
+        android:layout_marginRight="20dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="13dp"
+        android:contentDescription="Imagem do Produto"
+        android:paddingRight="10dp"
+        android:src="@drawable/ic_no_image" />
 
     <RelativeLayout
 
         android:id="@+id/pricingSection"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_toEndOf="@+id/imagem"
+        android:layout_above="@+id/infoSection"
         android:layout_alignTop="@+id/imagem"
         android:layout_marginEnd="10dp"
-        android:layout_above="@+id/infoSection">
+        android:layout_toEndOf="@+id/imagem"
+        android:orientation="vertical"
+        android:paddingLeft="3dp">
 
         <TextView
             android:id="@+id/lbl_precProduto"
@@ -61,11 +63,11 @@
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/lbl_precProduto"
             android:layout_alignBottom="@+id/lbl_precProduto"
-            android:layout_marginTop="23dp"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="100dp"
+            android:layout_marginTop="23dp"
             android:text="0,00"
-            android:textSize="24sp"
-            android:layout_centerVertical="true" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/lbl_descontoPromocao"

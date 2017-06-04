@@ -1,8 +1,13 @@
 package br.com.enforce.hippov1;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,6 +17,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.ImageSize;
+
+import java.lang.reflect.Array;
 import java.math.BigDecimal;
 
 import br.com.enforce.hippov1.entities.Item;
@@ -33,7 +44,7 @@ public class DescricaoProduto extends AppCompatActivity {
     private TextView descproduto;
     private int idProduto;
     private boolean flag;
-    private double promo;
+    private BigDecimal promo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +71,7 @@ public class DescricaoProduto extends AppCompatActivity {
 
                 nomeproduto.setText(prod.getNomeProduto());
                 descproduto.setText(prod.getDescProduto());
-                BigDecimal price = prod.getPrecProduto();
+                BigDecimal precoproduto = prod.getPrecProduto();
                 BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
@@ -74,8 +85,8 @@ public class DescricaoProduto extends AppCompatActivity {
                     TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
                     labelDescPromo.setVisibility(View.VISIBLE);
                     labelDescPromo.setText("POR:       R$ ");
-                    preco.setText(price.toString());
-                    promo = prod.getDescontoPromocao();
+                    preco.setText(precoproduto.toString());
+                    promo = desconto;
                     flag = true;
                 }
 
@@ -90,25 +101,20 @@ public class DescricaoProduto extends AppCompatActivity {
                 quantidade.setSelection(0, false);
                 quantidade.setAdapter(adapter);
 
+                //  IMAGEM
+                String imgStringBase64 = prod.getImagem();
 
-
-                /*  IMAGEM RENDER (tentativa)
-
-                //  Obtem Response da imagem do banco que está inicialmente em binário
-                String binaryStringResponse = response.body().getImagem();
-
-                //  Convertendo String para Binario
-                byte[] bynarybase = binaryStringResponse.getBytes();
-
-                //  Pega Base Binária e converte para a Base64
-                // byte[] encodedImage64 = Base64.encode(bynarybase, Base64.DEFAULT);
-
-                //  Decodifica a base64 para o elemento R.id.imagem
-                imagem.setImageBitmap(BitmapFactory.decodeByteArray(encodedImage64, 0, encodedImage64.length));
-
-                //  FIM Bloco IMAGEM
-                */
-
+                //  CONDIÇÃO para impedir erro de NULL POINTER EXCEPTION quando vier uma Imagem NULL do BANCO / WS.
+                if (imgStringBase64 != null) {
+                    byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
+                    Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+                    imagem.setImageBitmap(decodedByte);
+                } else {
+                    Drawable myDrawable = getResources().getDrawable(R.drawable.no_image);
+                    Bitmap noImg = ((BitmapDrawable) myDrawable).getBitmap();
+                    imagem.setImageBitmap(noImg);
+                }
+                //  FIM IMAGEM
             }
 
             @Override

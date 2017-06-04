@@ -1,16 +1,22 @@
 package br.com.enforce.hippov1;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -26,6 +32,7 @@ import retrofit2.Response;
 public class ProdutoCategoria extends AppCompatActivity {
 
     private LinearLayout ll_produtos;
+    private boolean flagResult = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,7 @@ public class ProdutoCategoria extends AppCompatActivity {
 
                         if (productCategoria.size() > 0) {
                             Log.e("Nome produto: ", "produtos : " + productCategoria.size());
-
+                            flagResult = true;
                             for (ProdutoRest produto : productCategoria) {
                                 Log.e("produtos: ", produto.getIdProduto() + " : " + produto.getNomeProduto());
                                 addProd1(produto);
@@ -60,7 +67,7 @@ public class ProdutoCategoria extends AppCompatActivity {
                             Button btnVoltaCategoria = (Button) findViewById(R.id.btn_returncategorias);
                             infoNoProducts.setVisibility(View.VISIBLE);
                             btnVoltaCategoria.setVisibility(View.VISIBLE);
-
+                            flagResult = false;
                             btnVoltaCategoria.setOnClickListener(new Button.OnClickListener() {
                                 public void onClick(View v) {
 
@@ -88,6 +95,21 @@ public class ProdutoCategoria extends AppCompatActivity {
 
         /*  EM CASO DE FALHA NA CHAMADA */
         Log.e("produtos: ", "produtos deveriam ter sido carregados");
+        if (flagResult == false){
+            TextView infoNoProducts = (TextView) findViewById(R.id.tv_noproducts);
+            Button btnVoltaCategoria = (Button) findViewById(R.id.btn_returncategorias);
+            infoNoProducts.setVisibility(View.VISIBLE);
+            btnVoltaCategoria.setVisibility(View.VISIBLE);
+            flagResult = false;
+            btnVoltaCategoria.setOnClickListener(new Button.OnClickListener() {
+                public void onClick(View v) {
+
+                    Intent intent = new Intent(ProdutoCategoria.this, Categorias.class);
+                    startActivity(intent);
+
+                }
+            });
+        }
 
     }
 
@@ -97,11 +119,25 @@ public class ProdutoCategoria extends AppCompatActivity {
         TextView idcategoria = (TextView) cardView.findViewById(R.id.id_produto);
         TextView tituloCategoria = (TextView) cardView.findViewById(R.id.nome_produto);
         TextView precoProdutoCat = (TextView) cardView.findViewById(R.id.preco_produto_cat);
+        ImageView imagProduto = (ImageView) cardView.findViewById(R.id.img_produto_cat);
 
-        String precoprodcat = produto.getPrecProduto().toString();
         idcategoria.setText(produto.getIdProduto().toString());
         tituloCategoria.setText(produto.getNomeProduto());
+        String precoprodcat = produto.getPrecProduto().toString();
         precoProdutoCat.setText("R$   " + precoprodcat);
+
+        //      IMAGEM
+        String imgStringBase64 = produto.getImagem();
+        //      CONDIÇÃO para impedir erro de NULL POINTER EXCEPTION quando vier uma Imagem NULL do BANCO / WS.
+        if (imgStringBase64 != null) {
+            byte[] decodedString = Base64.decode(imgStringBase64, Base64.DEFAULT);
+            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            imagProduto.setImageBitmap(decodedByte);
+        } else {
+            Drawable myDrawable = getResources().getDrawable(R.drawable.no_image);
+            Bitmap noImg = ((BitmapDrawable) myDrawable).getBitmap();
+            imagProduto.setImageBitmap(noImg);
+        }
 
         //  Na criação do CARDVIEW, definir o Listener do ONCLICK
         cardView.setOnClickListener(new View.OnClickListener() {

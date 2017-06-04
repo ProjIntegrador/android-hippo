@@ -1,5 +1,7 @@
 package br.com.enforce.hippov1.rest;
 
+import android.widget.ImageView;
+
 import java.math.BigDecimal;
 import java.util.ArrayList;
 
@@ -12,7 +14,6 @@ public class ProdutoRest {
     private double descontoPromocao;
     private CategoriaRest categoria;
     private boolean ativoProduto;
-
     private int qtdMinEstoque;
     private String imagem;
 
@@ -89,7 +90,7 @@ public class ProdutoRest {
     }
 
     //  Devolver produtos da categoria:
-    public void produtos(){
+    public void produtos() {
         ArrayList<String> produtos = new ArrayList<String>();
     }
 

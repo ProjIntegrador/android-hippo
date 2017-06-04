@@ -10,12 +10,17 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.enforce.hippov1.entities.Item;
 import br.com.enforce.hippov1.tempdata.SingletonHippo;
 
 public class Carrinho extends AppCompatActivity {
+
+    public BigDecimal itemvalue;
+    public BigDecimal sum;
+    public int qtd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,11 @@ public class Carrinho extends AppCompatActivity {
         final TableLayout table = (TableLayout) findViewById(R.id.tl_carrinho);
         final TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.tela_carrinho_table_row, null);
 
+        //  Instanciando valores para método de calculo dos itens
+        BigDecimal valoritem = item.getPrecoVendaItem();
+        itemvalue = valoritem.multiply(new BigDecimal("100"));
+        qtd = item.getQtdProduto();
+
         TextView tv;
 //        tv = (TextView) tr.findViewById(R.id.);
 //        tv.setText(item.getIdProduto().toString());
@@ -45,11 +55,11 @@ public class Carrinho extends AppCompatActivity {
         tv = (TextView) tr.findViewById(R.id.precProduto);
         tv.setText(item.getPrecoVendaItem().toString());
 
+
         table.addView(tr);
     }
 
-
-    private void deleteItem(Integer idProduto) {
+/*    private void deleteItem(Integer idProduto) {
         List<Item> itens = SingletonHippo.Instance().getItens();
         for (int i = 0; i < itens.size(); i++) {
             if (itens.get(i).getIdProduto().equals(idProduto)) {
@@ -58,7 +68,7 @@ public class Carrinho extends AppCompatActivity {
         }
 
 
-    }
+    }*/
 
     public void continue_shop(View v) {
         Intent intent = new Intent(Carrinho.this, Categorias.class);
