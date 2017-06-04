@@ -1,6 +1,5 @@
 package br.com.enforce.hippov1;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,8 +22,6 @@ import br.com.enforce.hippov1.tempdata.SingletonHippo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class DescricaoProduto extends AppCompatActivity {
 
@@ -36,8 +33,7 @@ public class DescricaoProduto extends AppCompatActivity {
     private TextView descproduto;
     private int idProduto;
     private boolean flag;
-    private BigDecimal promo;
-    private BigDecimal desconto;
+    private double promo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +45,7 @@ public class DescricaoProduto extends AppCompatActivity {
 
         nomeproduto = (TextView) findViewById(R.id.nomeProduto);
         imagem = (ImageView) findViewById(R.id.imagem);
-        preco = (TextView)findViewById(R.id.precProduto);
+        preco = (TextView) findViewById(R.id.precProduto);
         promocao = (TextView) findViewById(R.id.descontoPromocao);
         quantidade = (Spinner) findViewById(R.id.spin_qtd);
         descproduto = (TextView) findViewById(R.id.descProduto);
@@ -65,7 +61,7 @@ public class DescricaoProduto extends AppCompatActivity {
                 nomeproduto.setText(prod.getNomeProduto());
                 descproduto.setText(prod.getDescProduto());
                 BigDecimal price = prod.getPrecProduto();
-                desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
+                BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
                     preco.setText(prod.getPrecProduto().toString());
@@ -74,24 +70,24 @@ public class DescricaoProduto extends AppCompatActivity {
                     promocao.setText(desconto.toString());
                     promocao.setVisibility(View.VISIBLE);
                     TextView labelPreco = (TextView) findViewById(R.id.lbl_precProduto);
-                    labelPreco.setText("DE:                 R$  ");
+                    labelPreco.setText("DE:                 R$ ");
                     TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
                     labelDescPromo.setVisibility(View.VISIBLE);
-                    labelDescPromo.setText("POR:       R$  ");
+                    labelDescPromo.setText("POR:       R$ ");
                     preco.setText(price.toString());
-                    promo = price;
+                    promo = prod.getDescontoPromocao();
                     flag = true;
                 }
 
                 //  Solucao para o SPINNER obtendo o limite de itens do estoque
                 Integer[] intArray = new Integer[prod.getQtdMinEstoque()];
-                for(int i = 0; i < prod.getQtdMinEstoque(); i++) {
+                for (int i = 0; i < prod.getQtdMinEstoque(); i++) {
                     intArray[i] = i;
                 }
-                ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(DescricaoProduto.this,android.R.layout.simple_spinner_dropdown_item, intArray);
+                ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(DescricaoProduto.this, android.R.layout.simple_spinner_dropdown_item, intArray);
                 adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 adapter.notifyDataSetChanged();
-                quantidade.setSelection(0,false);
+                quantidade.setSelection(0, false);
                 quantidade.setAdapter(adapter);
 
 
@@ -114,6 +110,7 @@ public class DescricaoProduto extends AppCompatActivity {
                 */
 
             }
+
             @Override
             public void onFailure(Call<ProdutoRest> call, Throwable t) {
                 Log.e("falha", t.getMessage());
@@ -125,9 +122,9 @@ public class DescricaoProduto extends AppCompatActivity {
     }
 
     public void add_cart(View v) {
-        Log.i("Detalhe P", "idProduto "+idProduto);
-        Log.i("Detalhe P", "quantidade "+quantidade.getSelectedItem().toString());
-        Log.i("Detalhe P", "preco "+preco.getText());
+        Log.i("Detalhe P", "idProduto " + idProduto);
+        Log.i("Detalhe P", "quantidade " + quantidade.getSelectedItem().toString());
+        Log.i("Detalhe P", "preco " + preco.getText());
 
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
@@ -135,7 +132,7 @@ public class DescricaoProduto extends AppCompatActivity {
 
         item.setQtdProduto((Integer) quantidade.getSelectedItem());
 
-        if (flag != false){
+        if (flag != false) {
             item.setPrecoVendaItem(new BigDecimal(String.valueOf(promo)));
         } else {
             item.setPrecoVendaItem(new BigDecimal(preco.getText().toString()));
@@ -144,7 +141,6 @@ public class DescricaoProduto extends AppCompatActivity {
         SingletonHippo.Instance().addItem(item);
 
         Intent intent = new Intent(DescricaoProduto.this, Carrinho.class);
-        intent.putExtra("desconto", desconto);
         startActivity(intent);
     }
 

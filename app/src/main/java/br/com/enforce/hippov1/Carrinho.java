@@ -10,21 +10,20 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import java.math.BigDecimal;
 import java.util.List;
 
 import br.com.enforce.hippov1.entities.Item;
 import br.com.enforce.hippov1.tempdata.SingletonHippo;
 
 public class Carrinho extends AppCompatActivity {
-        private  String desconto;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tela_carrinho);
 
         List<Item> itens = SingletonHippo.Instance().getItens();
-        for (Item item : itens){
+        for (Item item : itens) {
             addTableRow(item);
         }
     }
@@ -37,42 +36,23 @@ public class Carrinho extends AppCompatActivity {
 //        tv = (TextView) tr.findViewById(R.id.);
 //        tv.setText(item.getIdProduto().toString());
 
-
-        Bundle extras = getIntent().getExtras();
-
-            BigDecimal decimal = (BigDecimal) extras.get("desconto");
-            desconto = decimal.toPlainString();
-
-
-
         tv = (TextView) tr.findViewById(R.id.nomeProduto);
         tv.setText(item.getNomeProduto());
 
         tv = (TextView) tr.findViewById(R.id.qtdProduto);
-        if((item.getQtdProduto())!= 0){
-            tv.setText(item.getQtdProduto().toString());
+        tv.setText(item.getQtdProduto().toString());
 
-            tv = (TextView) tr.findViewById(R.id.precProduto);
-            Double valor = Double.parseDouble(desconto) *  item.getQtdProduto();
-            tv.setText(String.valueOf(valor));
-        }
-        else{
-            tv.setText("1");
-
-            tv = (TextView) tr.findViewById(R.id.precProduto);
-            tv.setText(desconto);
-        }
-
-
+        tv = (TextView) tr.findViewById(R.id.precProduto);
+        tv.setText(item.getPrecoVendaItem().toString());
 
         table.addView(tr);
     }
 
 
-    private void deleteItem(Integer idProduto){
+    private void deleteItem(Integer idProduto) {
         List<Item> itens = SingletonHippo.Instance().getItens();
-        for (int i = 0; i < itens.size(); i++ ){
-            if(itens.get(i).getIdProduto().equals(idProduto)) {
+        for (int i = 0; i < itens.size(); i++) {
+            if (itens.get(i).getIdProduto().equals(idProduto)) {
                 itens.remove(i);
             }
         }
