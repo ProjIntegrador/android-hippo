@@ -16,33 +16,33 @@ import retrofit2.http.Query;
 public interface HippoServices {
 
     //      REQUISIÇAO DAS CATEGORIAS
-    @GET("/webservices/categoria")
+    @GET("categoria")
     Call<List<CategoriaRest>> responseString();
 
     //      REQUISIÇAO OBTENDO PRODUTOS DE UMA CATEGORIA
 //    @JsonProperty("categoria")
-    @GET("/webservices/produto")
+    @GET("produto")
     Call<List<ProdutoRest>> obtemProdutosPorCategoria(@Query("idCategoria") int idCategoria);
 
     //      PEGA INFORMAÇOES PARA TELA DE PRODUTO
-    @GET("/webservices/produto/detalhe")
+    @GET("produto/detalhe")
     Call<ProdutoRest> obtemDetalheProduto(@Query("idProduto") int idProduto);
 
     //      POST DE AUTENTICAÇAO do LOGIN
     @FormUrlEncoded
-    @POST("/webservices/login")
+    @POST("login")
     Call<Void> autenticaCliente(
             @Field("emailCliente") String emailCliente,
             @Field("senhaCliente") String senhaCliente
     );
 
-    @GET("/webservices/cliente/")
+    @GET("cliente")
     Call<ClienteLoginRest> clienteAutenticado();
 
-    @POST("/webservices/cliente")
+    @POST("cliente")
     Call<ClienteLoginRest> criarUsuario(@Body ClienteLoginRest cliente);
 
-    @POST("/webservices/pedido")
+    @POST("pedido")
     Call<Pedido> submetePedido(@Body Pedido pedido);
 
 }

@@ -86,17 +86,10 @@ public class Categorias extends AppCompatActivity {
                             @Override
                             public void onClick(View view) {
 
-                                Retrofit retrofit = new Retrofit.Builder()
-                                        .baseUrl("http://191.252.61.93:8080/")
-                                        .addConverterFactory(GsonConverterFactory.create())
-                                        .build();
-
-                                HippoServices service = new RetrofitInitializer().getHippoServices();
-                                final Call<List<CategoriaRest>> retorno = service.responseString();
-
-                                retorno.enqueue(new Callback<List<CategoriaRest>>() {
+                                Call call = (Call) new RetrofitInitializer().getHippoServices().responseString();
+                                call.enqueue(new Callback<List<CategoriaRest>>() {
                                     @Override
-                                    public void onResponse(Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
+                                    public void onResponse(final Call<List<CategoriaRest>> call, Response<List<CategoriaRest>> response) {
 
                                         if (response.isSuccessful()) {
                                             List<CategoriaRest> totalCat = response.body();

@@ -60,8 +60,7 @@ public class Pagamento extends AppCompatActivity {
 
                     Log.i("retorno", "id : " + cliente.getIdCliente());
                 } else {
-                    Log.i("return_error", response.body().toString());
-                }
+                    Log.i("retorn_error", "raw : " + response.raw().body());                }
 
             }
 
@@ -103,7 +102,7 @@ public class Pagamento extends AppCompatActivity {
                             Log.i("retorno", "raw : " + response.raw().body());
 
                         } else {
-                            Log.i("return_error", response.body().toString());
+                            Log.i("return_error", "raw : " + response.raw().body());
                         }
                     }
 
