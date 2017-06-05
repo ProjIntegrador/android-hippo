@@ -9,7 +9,6 @@
 
     <EditText
         android:id="@+id/emailCliente"
-        android:text="thiago@bolodesal.com.br"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -30,7 +29,6 @@
         android:layout_marginTop="210dp"
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/emailCliente"
-        android:text="bolodesal"
         android:layout_alignEnd="@+id/buttonNvCadastro" />
 
     <Button

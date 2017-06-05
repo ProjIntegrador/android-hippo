@@ -4,11 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.com.enforce.hippov1.rest.HippoServices;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
@@ -61,7 +63,11 @@ public class Login extends AppCompatActivity {
                             startActivity(intent);
                             return;
                         } else {
-                            Log.i("return_error", response.body().toString());
+                            Log.i("return_error", "HTTP respondeu: " + String.valueOf(response.raw().code()));
+                            Toast.makeText(Login.this, "Email ou Senha está incorreto. " +
+                                    "Reveja os dados inseridos e Tente novamente.", Toast.LENGTH_LONG).show();
+                            Intent i = new Intent(Login.this, Login.class);
+                            startActivity(i);
                         }
                     }
 

@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import br.com.enforce.hippov1.rest.ClienteLoginRest;
 import br.com.enforce.hippov1.rest.HippoServices;
@@ -51,33 +52,44 @@ public class Cadastro extends AppCompatActivity {
                 clienteLoginRest.setSenhaCliente(senhaCliente.getText().toString());
                 clienteLoginRest.setCelularCliente(celularCliente.getText().toString());
 
-                HippoServices service = new RetrofitInitializer(getApplicationContext()).getHippoServices();
-                Call<ClienteLoginRest> retorno = service.criarUsuario(clienteLoginRest);
-                retorno.enqueue(new Callback<ClienteLoginRest>() {
-                    @Override
-                    public void onResponse(Call<ClienteLoginRest> call, Response<ClienteLoginRest> response) {
-                        if (response.isSuccessful()) {
-                            Log.i("retorno", "raw : " + response.raw().body());
+                if ( nomeCompletoCliente == null || cpfCliente == null ||
+                        emailCliente == null || senhaCliente == null
+                        || celularCliente == null) {
+                    Toast.makeText(Cadastro.this, "Existem Campos em Branco, preencha todos os campos.", Toast.LENGTH_LONG).show();
+                } else {
+                    HippoServices service = new RetrofitInitializer(getApplicationContext()).getHippoServices();
+                    Call<ClienteLoginRest> retorno = service.criarUsuario(clienteLoginRest);
+                    retorno.enqueue(new Callback<ClienteLoginRest>() {
+                        @Override
+                        public void onResponse(Call<ClienteLoginRest> call, Response<ClienteLoginRest> response) {
+                            if (response.isSuccessful()) {
+                                Log.i("retorno", "raw : " + response.raw().body());
 
-                            ClienteLoginRest cliente = response.body();
-                            SingletonHippo.Instance().setCliente(cliente);
+                                ClienteLoginRest cliente = response.body();
+                                SingletonHippo.Instance().setCliente(cliente);
 
-                            Intent intent = new Intent(Cadastro.this, Pagamento.class);
-                            startActivity(intent);
+                                if (SingletonHippo.Instance().getCliente() != null) {
+                                    Intent intent = new Intent(Cadastro.this, Pagamento.class);
+                                    startActivity(intent);
+                                }
+                                Log.i("retorno", "id : " + cliente.getIdCliente());
+                            } else {
+                                Log.i("return_error", "HTTP respondeu: " + String.valueOf(response.raw().code()));
+                                Toast.makeText(Cadastro.this, "Não foi possível criar seu usuário. " +
+                                        "Por gentileza, repita o processo novamente.", Toast.LENGTH_LONG).show();
+                                Intent i = new Intent(Cadastro.this, Cadastro.class);
+                                startActivity(i);
+                            }
 
-                            Log.i("retorno", "id : " + cliente.getIdCliente());
-                        } else {
-                            Log.i("return_error", response.body().toString());
                         }
 
-                    }
+                        @Override
+                        public void onFailure(Call<ClienteLoginRest> call, Throwable t) {
+                            Log.e("falha", t.getMessage());
+                        }
 
-                    @Override
-                    public void onFailure(Call<ClienteLoginRest> call, Throwable t) {
-                        Log.e("falha", t.getMessage());
-                    }
-
-                });
+                    });
+                }
 
             }
 

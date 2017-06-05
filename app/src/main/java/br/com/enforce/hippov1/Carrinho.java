@@ -45,7 +45,6 @@ public class Carrinho extends AppCompatActivity {
         } else {
             for (Item item : itens) {
                 BigDecimal totalItem = item.getPrecoVendaItem().multiply(new BigDecimal(item.getQtdProduto()));
-                item.setPrecoVendaItem(totalItem);
                 addTableRow(item);
                 total = total.add(totalItem);
             }
@@ -61,11 +60,6 @@ public class Carrinho extends AppCompatActivity {
     private void addTableRow(Item item) {
         final TableLayout table = (TableLayout) findViewById(R.id.tl_carrinho);
         final TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.tela_carrinho_table_row, null);
-
-        //  Instanciando valores para método de calculo dos itens
-        BigDecimal valoritem = item.getPrecoVendaItem();
-        itemvalue = valoritem.multiply(new BigDecimal("100"));
-        qtd = item.getQtdProduto();
 
         TextView tv;
 //        tv = (TextView) tr.findViewById(R.id.);

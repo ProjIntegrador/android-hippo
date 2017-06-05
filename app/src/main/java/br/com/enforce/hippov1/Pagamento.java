@@ -126,24 +126,31 @@ public class Pagamento extends AppCompatActivity {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
-                //pega nome pela posição
-                TipoPagto tipoPagto = (TipoPagto) parent.getItemAtPosition(posicao);
-                if (tipoPagto == TipoPagto.CartaoDeCredito) {
 
-                    Fragment fragment;
-                    fragment = new Cartao_op();
-                    getFragmentManager().beginTransaction()
-                            .replace(R.id.pagamento_pager, fragment).commit();
+                if (SingletonHippo.Instance().getCliente() != null) {
 
+                    //pega nome pela posição
+                    TipoPagto tipoPagto = (TipoPagto) parent.getItemAtPosition(posicao);
+                    if (tipoPagto == TipoPagto.CartaoDeCredito) {
+
+                        Fragment fragment;
+                        fragment = new Cartao_op();
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.pagamento_pager, fragment).commit();
+                    } else {
+                        Fragment fragment;
+                        fragment = new Boleto_op();
+                        getFragmentManager().beginTransaction()
+                                .replace(R.id.pagamento_pager, fragment).commit();
+                    }
+                    //imprime um Toast na tela com o nome que foi selecionado
+                    Toast.makeText(Pagamento.this, "Forma Selecionada: " + tipoPagto.getTipoPagto(), Toast.LENGTH_LONG).show();
 
                 } else {
-                    Fragment fragment;
-                    fragment = new Boleto_op();
-                    getFragmentManager().beginTransaction()
-                            .replace(R.id.pagamento_pager, fragment).commit();
+                    Intent i = new Intent(Pagamento.this, Login.class);
+                    startActivity(i);
                 }
-                //imprime um Toast na tela com o nome que foi selecionado
-                Toast.makeText(Pagamento.this, "Forma Selecionada: " + tipoPagto.getTipoPagto(), Toast.LENGTH_LONG).show();
+
             }
 
             @Override

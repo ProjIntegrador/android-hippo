@@ -37,7 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_nome"
-                    android:text="Cliente"
+                    android:text="@null"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -61,7 +61,7 @@
                     android:ems="10"
                     android:hint="000.000.000-0"
                     android:inputType="date"
-                    android:text="123.456.789-0" />
+                    android:text="@null" />
 
 
             </LinearLayout>
@@ -83,7 +83,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_email"
-                    android:text="email@cliente.com.br"
+                    android:text="@null"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -105,7 +105,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_senha"
-                    android:text="senha"
+                    android:text="@null"
                     android:inputType="textPassword"/>
             </LinearLayout>
 
@@ -127,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_csenha"
-                    android:text="senha"
+                    android:text="@null"
                     android:inputType="textPassword" />
             </LinearLayout>
 
@@ -148,7 +148,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/hint_celular"
-                    android:text="01 2345-6789"
+                    android:text="@null"
                     android:inputType="textPersonName" />
             </LinearLayout>
 
@@ -165,8 +165,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/chx_promocoes" />
-
-
             </LinearLayout>
 
             <LinearLayout
