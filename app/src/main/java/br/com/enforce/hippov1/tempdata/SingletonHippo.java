@@ -1,5 +1,6 @@
 package br.com.enforce.hippov1.tempdata;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class SingletonHippo {
 
     private int qtdEstoque;
     private String valorCarrinho;
+    private BigDecimal valorProduto;
 
     private SingletonHippo() {}
 
@@ -71,5 +73,13 @@ public class SingletonHippo {
 
     public String getValorCarrinho() {
         return valorCarrinho;
+    }
+
+    public void setValorProduto(BigDecimal valorProduto) {
+        this.valorProduto = valorProduto;
+    }
+
+    public BigDecimal getValorProduto() {
+        return valorProduto;
     }
 }

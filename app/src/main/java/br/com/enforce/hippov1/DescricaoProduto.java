@@ -70,8 +70,9 @@ public class DescricaoProduto extends AppCompatActivity {
                 BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
-                    String valorProduto = String.format(Locale.getDefault(), "%.2f", prod.getPrecProduto());
+                    String valorProduto = String.format(Locale.getDefault(), "%.2f", precoproduto);
                     preco.setText("R$ "+valorProduto);
+                    SingletonHippo.Instance().setValorProduto(prod.getPrecProduto());
                     flag = false;
                 } else {
                     String valorPromocao = String.format(Locale.getDefault(), "%.2f", desconto);
@@ -130,7 +131,6 @@ public class DescricaoProduto extends AppCompatActivity {
         Log.i("Detalhe P", "quantidade " + quantidade.getSelectedItem().toString());
         Log.i("Detalhe P", "preco " + preco.getText());
 
-
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
         item.setNomeProduto(nomeproduto.getText().toString());
@@ -147,7 +147,7 @@ public class DescricaoProduto extends AppCompatActivity {
         if (flag != false) {
             item.setPrecoVendaItem(new BigDecimal(String.valueOf(promo)));
         } else {
-            item.setPrecoVendaItem(new BigDecimal(preco.getText().toString()));
+            item.setPrecoVendaItem(new BigDecimal(String.valueOf(SingletonHippo.Instance().getValorProduto())));
         }
 
         SingletonHippo.Instance().addItem(item);
