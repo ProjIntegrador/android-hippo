@@ -136,7 +136,10 @@
             android:layout_alignStart="@+id/imagem"
             android:layout_below="@+id/infoSection"
             android:layout_marginEnd="10dp"
+            android:elegantTextHeight="true"
             android:paddingLeft="5dp"
+            android:scrollbarSize="3dp"
+            android:scrollbarStyle="insideOverlay"
             android:text="Descrição"
             android:textSize="15sp" />
 

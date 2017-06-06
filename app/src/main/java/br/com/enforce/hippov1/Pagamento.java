@@ -115,6 +115,7 @@ public class Pagamento extends AppCompatActivity {
                 });
 
                 Toast.makeText(Pagamento.this, "Seu pedido foi enviado. Retornando à Loja", Toast.LENGTH_LONG).show();
+                SingletonHippo.Instance().clear();
                 Intent i = new Intent(Pagamento.this, MainActivity.class);
                 startActivity(i);
             }

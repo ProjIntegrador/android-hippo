@@ -48,4 +48,9 @@ public class SingletonHippo {
     public List<Item> getItens() {
         return itens;
     }
+
+    public void clear()
+    {
+        instance = null;
+    }
 }
