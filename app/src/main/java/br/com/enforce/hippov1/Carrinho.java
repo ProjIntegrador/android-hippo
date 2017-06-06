@@ -77,14 +77,6 @@ public class Carrinho extends AppCompatActivity {
         table.addView(tr);
     }
 
-/*    private void deleteItem(Integer idProduto) {
-        List<Item> itens = SingletonHippo.Instance().getItens();
-        for (int i = 0; i < itens.size(); i++) {
-            if (itens.get(i).getIdProduto().equals(idProduto)) {
-                itens.remove(i);
-            }
-        }
-}*/
 
     //  Botão de Voltar às compras
     public void continue_shop(View v) {

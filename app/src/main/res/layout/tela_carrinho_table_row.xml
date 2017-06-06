@@ -6,28 +6,14 @@
     android:layout_marginBottom="3dp"
     android:layout_marginTop="3dp">
 
-    <ImageView
-        android:id="@+id/imagem"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical|center_horizontal"
-        app:srcCompat="@drawable/ic_no_image" />
-
-    <!-- TextView
-        android:id="@+id/idProduto"
-        android:layout_width="20dp"
-        android:layout_height="match_parent"
-        android:paddingLeft="10dp"
-        android:text="Produto1"
-        android:gravity="center_vertical|center" / -->
-
     <TextView
         android:id="@+id/nomeProduto"
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
         android:paddingLeft="10dp"
-        android:text="Produto1" />
+        android:text="Produto1"
+        android:layout_marginLeft="30dp" />
 
     <TextView
         android:id="@+id/qtdProduto"
@@ -46,15 +32,5 @@
         android:paddingLeft="10dp"
         android:text="R$ 0,00"
         android:textAlignment="center" />
-
-    <ImageView
-
-        android:id="@+id/apagar"
-        android:layout_width="35dp"
-        android:layout_height="match_parent"
-        android:clickable="true"
-        android:onClick="removeItem"
-        app:srcCompat="@android:drawable/ic_delete"
-        />
 
 </TableRow>
