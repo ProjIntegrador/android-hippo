@@ -12,8 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import br.com.enforce.hippov1.rest.ClienteLoginRest;
 import br.com.enforce.hippov1.rest.HippoServices;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
+import br.com.enforce.hippov1.tempdata.SingletonHippo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -50,7 +52,7 @@ public class Login extends AppCompatActivity {
 
                 //  INICIA COMUNICAÇÃO COM O WS de Login
                 HippoServices service = new RetrofitInitializer(getApplicationContext()).getHippoServices();
-                Call<Void> retorno = service.autenticaCliente(emailCliente.getText().toString(), senhaCliente.getText().toString());
+                final Call<Void> retorno = service.autenticaCliente(emailCliente.getText().toString(), senhaCliente.getText().toString());
 
                 retorno.enqueue(new Callback<Void>() {
                     @Override
@@ -59,6 +61,10 @@ public class Login extends AppCompatActivity {
                             Log.i("retorno", "raw : " + response.raw().body());
 //                            ClienteLoginRest cliente = response.body();
 //                            Log.i("retorno", "id : "+cliente.getIdCliente());
+
+                            SingletonHippo.Instance();
+                            SingletonHippo.Instance().setLogado(emailCliente.getText().toString());
+
                             Intent intent = new Intent(Login.this, Pagamento.class);
                             startActivity(intent);
                             return;

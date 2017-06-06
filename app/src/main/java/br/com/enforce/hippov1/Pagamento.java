@@ -126,7 +126,7 @@ public class Pagamento extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int posicao, long id) {
 
-                if (SingletonHippo.Instance().getCliente() != null) {
+                if (SingletonHippo.Instance().getLogado() != null) {
 
                     //pega nome pela posição
                     TipoPagto tipoPagto = (TipoPagto) parent.getItemAtPosition(posicao);

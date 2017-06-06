@@ -17,12 +17,6 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
-import com.nostra13.universalimageloader.core.ImageLoader;
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.nostra13.universalimageloader.core.assist.ImageSize;
-
-import java.lang.reflect.Array;
 import java.math.BigDecimal;
 
 import br.com.enforce.hippov1.entities.Item;
@@ -131,11 +125,19 @@ public class DescricaoProduto extends AppCompatActivity {
         Log.i("Detalhe P", "quantidade " + quantidade.getSelectedItem().toString());
         Log.i("Detalhe P", "preco " + preco.getText());
 
+
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
         item.setNomeProduto(nomeproduto.getText().toString());
-
-        item.setQtdProduto((Integer) quantidade.getSelectedItem());
+        // A linha abaixo define que ao clicar e adicionar o produto no carrinho
+        // caso ele nao alterou a quantidade de 0 add 1 na quantidade ao singleton
+        int numSpinner = 0;
+        numSpinner = Integer.parseInt(String.valueOf(quantidade.getSelectedItemPosition()));
+        if ( numSpinner == 0) {
+            item.setQtdProduto(1);
+        } else {
+            item.setQtdProduto((Integer) quantidade.getSelectedItem());
+        }
 
         if (flag != false) {
             item.setPrecoVendaItem(new BigDecimal(String.valueOf(promo)));

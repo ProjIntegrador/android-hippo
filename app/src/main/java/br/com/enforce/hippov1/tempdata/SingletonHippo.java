@@ -8,6 +8,7 @@ import br.com.enforce.hippov1.rest.ClienteLoginRest;
 
 public class SingletonHippo {
 
+    private String logado;
     private static SingletonHippo instance;
     private ClienteLoginRest cliente;
     private List<Item> itens = new ArrayList<>();
@@ -28,6 +29,17 @@ public class SingletonHippo {
     public void setCliente(ClienteLoginRest cliente) {
         this.cliente = cliente;
     }
+
+
+    public String getLogado(){
+        return logado;
+    }
+
+    public void setLogado(String mail){
+        this.logado = mail;
+    }
+
+
 
     public void addItem(Item item) {
         itens.add(item);
