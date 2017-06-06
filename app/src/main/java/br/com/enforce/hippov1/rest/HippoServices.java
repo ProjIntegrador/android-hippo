@@ -36,7 +36,7 @@ public interface HippoServices {
             @Field("senhaCliente") String senhaCliente
     );
 
-    @GET("cliente")
+    @GET("cliente/")
     Call<ClienteLoginRest> clienteAutenticado();
 
     @POST("cliente")
