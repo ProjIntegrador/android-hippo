@@ -16,7 +16,8 @@
         android:layout_above="@+id/total_carrinho"
         android:layout_alignParentStart="true"
         android:layout_marginTop="22dp"
-        android:paddingTop="5dp"></TableLayout>
+        android:paddingTop="5dp"
+        android:scrollbarStyle="insideOverlay"></TableLayout>
 
     <TextView
         android:id="@+id/info_prod_carrinho"

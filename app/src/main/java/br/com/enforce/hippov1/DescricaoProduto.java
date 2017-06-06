@@ -18,6 +18,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.math.BigDecimal;
+import java.util.Locale;
 
 import br.com.enforce.hippov1.entities.Item;
 import br.com.enforce.hippov1.rest.HippoServices;
@@ -69,21 +70,25 @@ public class DescricaoProduto extends AppCompatActivity {
                 BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
-                    preco.setText(prod.getPrecProduto().toString());
+                    String valorProduto = String.format(Locale.getDefault(), "%.2f", prod.getPrecProduto());
+                    preco.setText("R$ "+valorProduto);
                     flag = false;
                 } else {
-                    promocao.setText(desconto.toString());
+                    String valorPromocao = String.format(Locale.getDefault(), "%.2f", desconto);
+                    promocao.setText(valorPromocao);
                     promocao.setVisibility(View.VISIBLE);
                     TextView labelPreco = (TextView) findViewById(R.id.lbl_precProduto);
-                    labelPreco.setText("DE:                 R$ ");
+                    labelPreco.setText("DE              R$ ");
                     TextView labelDescPromo = (TextView) findViewById(R.id.lbl_descontoPromocao);
                     labelDescPromo.setVisibility(View.VISIBLE);
-                    labelDescPromo.setText("POR:       R$ ");
-                    preco.setText(precoproduto.toString());
+                    labelDescPromo.setText("POR         R$ ");
+                    String valorProduto = String.format(Locale.getDefault(), "%.2f", precoproduto);
+                    preco.setText(valorProduto);
                     promo = desconto;
                     flag = true;
                 }
 
+                SingletonHippo.Instance().setQtdEstoque(prod.getQtdMinEstoque());
                 //  Solucao para o SPINNER obtendo o limite de itens do estoque
                 Integer[] intArray = new Integer[prod.getQtdMinEstoque()];
                 for (int i = 0; i < prod.getQtdMinEstoque(); i++) {

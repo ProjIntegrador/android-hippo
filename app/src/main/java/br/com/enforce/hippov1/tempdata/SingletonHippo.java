@@ -13,6 +13,8 @@ public class SingletonHippo {
     private ClienteLoginRest cliente;
     private List<Item> itens = new ArrayList<>();
 
+    private int qtdEstoque;
+
     private SingletonHippo() {}
 
     public static SingletonHippo Instance(){
@@ -30,20 +32,20 @@ public class SingletonHippo {
         this.cliente = cliente;
     }
 
-
     public String getLogado(){
         return logado;
     }
+
 
     public void setLogado(String mail){
         this.logado = mail;
     }
 
-
-
     public void addItem(Item item) {
         itens.add(item);
     }
+
+
 
     public List<Item> getItens() {
         return itens;
@@ -52,5 +54,13 @@ public class SingletonHippo {
     public void clear()
     {
         instance = null;
+    }
+
+    public void setQtdEstoque(int qtdEstoque) {
+        this.qtdEstoque = qtdEstoque;
+    }
+
+    public int getQtdEstoque() {
+        return qtdEstoque;
     }
 }

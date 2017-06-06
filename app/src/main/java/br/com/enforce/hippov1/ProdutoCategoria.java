@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.List;
+import java.util.Locale;
 
 import br.com.enforce.hippov1.rest.ProdutoRest;
 import br.com.enforce.hippov1.rest.RetrofitInitializer;
@@ -123,8 +124,9 @@ public class ProdutoCategoria extends AppCompatActivity {
 
         idcategoria.setText(produto.getIdProduto().toString());
         tituloCategoria.setText(produto.getNomeProduto());
-        String precoprodcat = produto.getPrecProduto().toString();
-        precoProdutoCat.setText("R$   " + precoprodcat);
+
+        String valorProduto = String.format(Locale.getDefault(), "%.2f", produto.getPrecProduto());
+        precoProdutoCat.setText("R$   " + valorProduto);
 
         //  IMAGEM
         String imgStringBase64 = produto.getImagem();
