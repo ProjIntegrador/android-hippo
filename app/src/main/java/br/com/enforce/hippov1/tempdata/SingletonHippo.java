@@ -14,6 +14,7 @@ public class SingletonHippo {
     private List<Item> itens = new ArrayList<>();
 
     private int qtdEstoque;
+    private String valorCarrinho;
 
     private SingletonHippo() {}
 
@@ -62,5 +63,13 @@ public class SingletonHippo {
 
     public int getQtdEstoque() {
         return qtdEstoque;
+    }
+
+    public void setValorCarrinho(String valorCarrinho) {
+        this.valorCarrinho = valorCarrinho;
+    }
+
+    public String getValorCarrinho() {
+        return valorCarrinho;
     }
 }

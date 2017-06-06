@@ -32,6 +32,7 @@ public class Carrinho extends AppCompatActivity {
     public int qtd;
 
     private boolean clean = true;
+//    private boolean resume = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,8 +68,6 @@ public class Carrinho extends AppCompatActivity {
         final TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.tela_carrinho_table_row, null);
 
         TextView tv;
-//        tv = (TextView) tr.findViewById(R.id.);
-//        tv.setText(item.getIdProduto().toString());
 
         tv = (TextView) tr.findViewById(R.id.nomeProduto);
         tv.setText(item.getNomeProduto());
@@ -109,10 +108,14 @@ public class Carrinho extends AppCompatActivity {
                 total = total.add(totalItem);
                 Log.i("Carrinho", "total " + total);
                 TextView totalAgregado = (TextView) findViewById(R.id.total_carrinho);
-                String valorMonetario = String.format(Locale.getDefault(), "%.2f", total);
-                totalAgregado.setText(valorMonetario);
+                String valorTotalCarrinho = String.format(Locale.getDefault(), "%.2f", total);
+                totalAgregado.setText(valorTotalCarrinho);
+
+                item.setQtdProduto((Integer) parent.getSelectedItem());
+                SingletonHippo.Instance().setValorCarrinho(valorTotalCarrinho);
 
             }
+
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -122,6 +125,13 @@ public class Carrinho extends AppCompatActivity {
         //  Fim Solução para o Spinner
 
         table.addView(tr);
+    }
+
+    public void onResume(){
+        super.onResume();
+
+        SingletonHippo.Instance().getValorCarrinho();
+
     }
 
     //  Botão de Voltar às compras
@@ -152,7 +162,6 @@ public class Carrinho extends AppCompatActivity {
         }
 
     }
-
 
     //  MENU
     @Override
