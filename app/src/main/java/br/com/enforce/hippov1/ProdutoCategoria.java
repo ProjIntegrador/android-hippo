@@ -124,7 +124,6 @@ public class ProdutoCategoria extends AppCompatActivity {
 
         idcategoria.setText(produto.getIdProduto().toString());
         tituloCategoria.setText(produto.getNomeProduto());
-
         String valorProduto = String.format(Locale.getDefault(), "%.2f", produto.getPrecProduto());
         precoProdutoCat.setText("R$   " + valorProduto);
 

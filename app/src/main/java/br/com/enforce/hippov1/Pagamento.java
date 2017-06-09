@@ -115,7 +115,7 @@ public class Pagamento extends AppCompatActivity {
                 });
 
                 Toast.makeText(Pagamento.this, "Seu pedido foi enviado. Retornando à Loja", Toast.LENGTH_LONG).show();
-                SingletonHippo.Instance().clear();
+                SingletonHippo.Instance().clear();  //  AQUI LIMPAMOS O CARRINHO E DEMAIS INFORMACOES CONTIDAS NO SINGLETON
                 Intent i = new Intent(Pagamento.this, MainActivity.class);
                 startActivity(i);
             }
@@ -189,4 +189,3 @@ public class Pagamento extends AppCompatActivity {
     }
 
 }
-

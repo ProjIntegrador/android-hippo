@@ -14,8 +14,6 @@ public class SingletonHippo {
     private ClienteLoginRest cliente;
     private List<Item> itens = new ArrayList<>();
 
-    private int qtdEstoque;
-    private String valorCarrinho;
     private BigDecimal valorProduto;
 
     private SingletonHippo() {}
@@ -35,20 +33,20 @@ public class SingletonHippo {
         this.cliente = cliente;
     }
 
+
     public String getLogado(){
         return logado;
     }
-
 
     public void setLogado(String mail){
         this.logado = mail;
     }
 
+
+
     public void addItem(Item item) {
         itens.add(item);
     }
-
-
 
     public List<Item> getItens() {
         return itens;
@@ -59,22 +57,6 @@ public class SingletonHippo {
         instance = null;
     }
 
-    public void setQtdEstoque(int qtdEstoque) {
-        this.qtdEstoque = qtdEstoque;
-    }
-
-    public int getQtdEstoque() {
-        return qtdEstoque;
-    }
-
-    public void setValorCarrinho(String valorCarrinho) {
-        this.valorCarrinho = valorCarrinho;
-    }
-
-    public String getValorCarrinho() {
-        return valorCarrinho;
-    }
-
     public void setValorProduto(BigDecimal valorProduto) {
         this.valorProduto = valorProduto;
     }
@@ -82,4 +64,5 @@ public class SingletonHippo {
     public BigDecimal getValorProduto() {
         return valorProduto;
     }
+
 }

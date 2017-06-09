@@ -8,9 +8,6 @@ import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -32,7 +29,6 @@ public class Carrinho extends AppCompatActivity {
     public int qtd;
 
     private boolean clean = true;
-//    private boolean resume = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,76 +59,26 @@ public class Carrinho extends AppCompatActivity {
 
     }
 
-    private void addTableRow(final Item item) {
+    private void addTableRow(Item item) {
         final TableLayout table = (TableLayout) findViewById(R.id.tl_carrinho);
         final TableRow tr = (TableRow) getLayoutInflater().inflate(R.layout.tela_carrinho_table_row, null);
 
         TextView tv;
+//        tv = (TextView) tr.findViewById(R.id.);
+//        tv.setText(item.getIdProduto().toString());
 
         tv = (TextView) tr.findViewById(R.id.nomeProduto);
         tv.setText(item.getNomeProduto());
 
+        tv = (TextView) tr.findViewById(R.id.qtdProduto);
+        tv.setText(item.getQtdProduto().toString());
+
         tv = (TextView) tr.findViewById(R.id.precProduto);
         String valorMonetario = String.format(Locale.getDefault(), "%.2f", item.getPrecoVendaItem());
         tv.setText("R$ "+valorMonetario);
-
-
-        //  Solução para obter o Spinner da activity DescricaoProduto
-        Spinner spinQtdCarrinho = (Spinner) tr.findViewById(R.id.spin_carrinho_td);
-        Integer[] intArray = new Integer[SingletonHippo.Instance().getQtdEstoque()];
-        for (int i = 0; i < SingletonHippo.Instance().getQtdEstoque(); i++) {
-            intArray[i] = i;
-        }
-        //  Instanciado o Adapter para criar as opçoes em base do Array de inteiros
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(Carrinho.this, android.R.layout.simple_spinner_dropdown_item, intArray);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adapter.notifyDataSetChanged();
-//        spinQtdCarrinho.setSelection(1,false);
-        spinQtdCarrinho.setAdapter(adapter);
-
-        if (item.getQtdProduto() > 0) {
-            spinQtdCarrinho.setSelection(item.getQtdProduto());
-        }
-
-        //  Evento de alternância nos valores do Spinner em função do Total do Carrinho
-        spinQtdCarrinho.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-                BigDecimal total = BigDecimal.ZERO;
-//                Toast toast = Toast.makeText(Carrinho.this, "Voce alterou para " + parent.getSelectedItem() +
-//                        " unidades do produto" + item.getNomeProduto(), Toast.LENGTH_LONG);
-//                toast.setGravity(Gravity.CENTER, 0, 0);
-//                toast.show();
-                BigDecimal totalItem = item.getPrecoVendaItem().multiply(new BigDecimal(String.valueOf(parent.getSelectedItem())));
-                total = total.add(totalItem);
-                Log.i("Carrinho", "total " + total);
-                TextView totalAgregado = (TextView) findViewById(R.id.total_carrinho);
-                String valorTotalCarrinho = String.format(Locale.getDefault(), "%.2f", total);
-                totalAgregado.setText(valorTotalCarrinho);
-
-                item.setQtdProduto((Integer) parent.getSelectedItem());
-                SingletonHippo.Instance().setValorCarrinho(valorTotalCarrinho);
-
-            }
-
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                //Another interface callback
-            }
-        });
-        //  Fim Solução para o Spinner
-
         table.addView(tr);
     }
 
-    public void onResume(){
-        super.onResume();
-
-        SingletonHippo.Instance().getValorCarrinho();
-
-    }
 
     //  Botão de Voltar às compras
     public void continue_shop(View v) {

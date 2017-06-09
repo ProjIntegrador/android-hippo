@@ -70,7 +70,7 @@ public class DescricaoProduto extends AppCompatActivity {
                 BigDecimal desconto = BigDecimal.valueOf(prod.getDescontoPromocao());
 
                 if (prod.getDescontoPromocao() == 0) {
-                    String valorProduto = String.format(Locale.getDefault(), "%.2f", precoproduto);
+                    String valorProduto = String.format(Locale.getDefault(), "%.2f", prod.getPrecProduto());
                     preco.setText("R$ "+valorProduto);
                     SingletonHippo.Instance().setValorProduto(prod.getPrecProduto());
                     flag = false;
@@ -89,7 +89,6 @@ public class DescricaoProduto extends AppCompatActivity {
                     flag = true;
                 }
 
-                SingletonHippo.Instance().setQtdEstoque(prod.getQtdMinEstoque());
                 //  Solucao para o SPINNER obtendo o limite de itens do estoque
                 Integer[] intArray = new Integer[prod.getQtdMinEstoque()];
                 for (int i = 0; i < prod.getQtdMinEstoque(); i++) {
@@ -130,6 +129,7 @@ public class DescricaoProduto extends AppCompatActivity {
         Log.i("Detalhe P", "idProduto " + idProduto);
         Log.i("Detalhe P", "quantidade " + quantidade.getSelectedItem().toString());
         Log.i("Detalhe P", "preco " + preco.getText());
+
 
         Item item = new Item();
         item.setIdProduto(new Long(idProduto));
